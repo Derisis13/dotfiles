@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="smb://ds_panni.local/lacko/" added="2020-09-28T15:53:13Z" modified="2021-02-20T11:12:12.737885Z" visited="2021-02-20T11:12:12.737880Z">
+    <title>lacko on ds_panni.local</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2021-02-20T11:12:12.737882Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="sftp://192.168.6.32/" added="2021-02-15T11:14:04.344810Z" modified="2021-02-15T11:14:04.344816Z" visited="2021-02-15T11:14:04.344812Z">
+    <title>/ on 192.168.6.32</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2021-02-15T11:14:04.344813Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://ds_panni.local/public/" added="2021-02-20T11:12:47.085047Z" modified="2021-02-20T11:12:47.085052Z" visited="2021-02-20T11:12:47.085048Z">
+    <title>public on ds_panni.local</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2021-02-20T11:12:47.085049Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="ftp://ftp.draytek.com/Vigor2760/Firmware/modem%20code" added="2021-06-30T12:37:29.867925Z" modified="2021-06-30T12:37:29.867930Z" visited="2021-06-30T12:37:29.867926Z">
+    <title>modem code</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2021-06-30T12:37:29.867928Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="ftp://192.168.16.15/" added="2021-08-24T12:05:00.856474Z" modified="2022-06-03T19:20:19.727819Z" visited="2022-06-03T19:20:19.727812Z">
+    <title>/ on 192.168.16.15</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2022-06-03T19:20:19.727816Z" count="13"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://192.168.16.32/lacko/" added="2021-09-23T09:03:59.505773Z" modified="2021-09-23T09:03:59.505781Z" visited="2021-09-23T09:03:59.505776Z">
+    <title>lacko on 192.168.16.32</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2021-09-23T09:03:59.505777Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://ds_panni.local/" added="2022-04-10T12:37:17.205019Z" modified="2023-02-06T22:37:16.902758Z" visited="2023-02-06T22:37:16.902756Z">
+    <title>Windows shares on ds_panni.local</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2023-02-06T22:37:16.902757Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://ds_panni.local/netbackup/" added="2022-08-25T19:25:25.562604Z" modified="2022-08-25T19:25:25.562607Z" visited="2022-08-25T19:25:25.562605Z">
+    <title>netbackup on ds_panni.local</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2022-08-25T19:25:25.562606Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://192.168.16.187/" added="2022-09-02T15:27:32.327341Z" modified="2022-09-04T17:53:10.458083Z" visited="2022-09-04T17:53:10.458072Z">
+    <title>Windows shares on 192.168.16.187</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2022-09-04T17:53:10.458077Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://truenas.local/truenas-ercsi/" added="2022-09-14T17:26:49.734497Z" modified="2022-09-14T18:12:22.316020Z" visited="2022-09-14T18:12:22.316018Z">
+    <title>truenas-ercsi on truenas.local</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2022-09-14T18:12:22.316019Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://192.168.16.67/" added="2022-12-30T18:39:08.754634Z" modified="2024-01-16T18:32:20.752272Z" visited="2024-01-16T18:32:20.752264Z">
+    <title>Windows shares on 192.168.16.67</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2024-01-16T18:32:20.752267Z" count="7"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://192.168.16.67/home/" added="2022-12-30T18:40:59.361828Z" modified="2022-12-30T18:40:59.361842Z" visited="2022-12-30T18:40:59.361832Z">
+    <title>home on 192.168.16.67</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2022-12-30T18:40:59.361836Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://ds_panni.local/usbshare1/" added="2023-02-09T18:39:42.681497Z" modified="2023-02-09T18:39:42.681501Z" visited="2023-02-09T18:39:42.681498Z">
+    <title>usbshare1 on ds_panni.local</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2023-02-09T18:39:42.681499Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="davs://cloud.nannk.xyz/remote.php/dav/files/open" added="2023-02-11T13:06:46.073821Z" modified="2023-02-12T07:57:27.796929Z" visited="2023-02-12T07:57:27.796927Z">
+    <title>open</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2023-02-12T07:57:27.796928Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://192.168.16.67/fileserver/" added="2023-08-02T09:43:49.607409Z" modified="2023-09-11T15:58:47.008395Z" visited="2023-09-11T15:58:47.008392Z">
+    <title>fileserver on 192.168.16.67</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2023-09-11T15:58:47.008393Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://192.168.16.67/backup/" added="2023-10-13T12:44:12.748745Z" modified="2023-11-21T10:01:29.897402Z" visited="2023-11-21T10:01:29.897399Z">
+    <title>backup on 192.168.16.67</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2023-11-21T10:01:29.897401Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://fileserver-01.intranet.c3s.hu/users/laszlo.parkanyi" added="2024-02-14T15:18:55.725292Z" modified="2024-02-14T15:18:55.725295Z" visited="2024-02-14T15:18:55.725293Z">
+    <title>laszlo.parkanyi</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2024-02-14T15:18:55.725294Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="ftp://node7.sas.hu/" added="2024-02-18T15:00:42.195943Z" modified="2024-02-18T15:00:42.195950Z" visited="2024-02-18T15:00:42.195945Z">
+    <title>/ on node7.sas.hu</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2024-02-18T15:00:42.195947Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="ftp://omsztehu@ftp.omszte.hu/" added="2024-02-18T15:07:42.337592Z" modified="2024-02-18T15:07:42.337606Z" visited="2024-02-18T15:07:42.337596Z">
+    <title>/ on ftp.omszte.hu</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2024-02-18T15:07:42.337600Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>
