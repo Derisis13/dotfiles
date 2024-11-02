@@ -1,0 +1,35 @@
+# bash-aliases
+
+# command preferences
+alias sudo="doas"					# less bloated, more secure
+alias cp="cp -i"                                	# confirm before overwriting something
+alias df='df -h'                                	# human-readable sizes
+alias free='free -m'                            	# show sizes in MB
+alias dmesg='sudo dmesg -T --color=always'				# human-readable timestamps
+alias less='less -r' # retain color escapes
+
+# ssh shortcuts
+#alias sshnas="ssh admin@192.168.16.32"			# synology NAS
+#alias sshdir600="ssh root@192.168.16.15"                	# router running my shutter automation
+#alias sshrockvault="ssh admin@192.168.16.67" 	# NAS in building
+#alias sshipad="ssh 192.168.16.33"							# ideapad running microservices
+
+# executables
+#alias tarokk='java -jar ~/.local/bin/jota/jota.jar'			# Java tarokk game
+#alias orbiter-ng='zsh ~/Programs/run-wine-orbiter-ng.sh'		# Community developed spacflight simulator, DirectX11 GUI
+#alias orbiter='zsh ~/Programs/run-wine-orbiter.sh'			# Community developed spacflight simulator, default GUI
+#alias holoware='wine ~/Programs/holoware/Holoware\ v0.2/Holoware.exe'	# Fanmade Wario Ware style game with Hololive characters
+
+# one-liners
+alias bton='doas /etc/init.d/bluetooth start'				# Turn the bluetooth daemon on
+alias btoff='doas /etc/init.d/bluetooth stop'				# Turn the bluetooth daemon off
+alias ani-hist='${EDITOR} "${XDG_CACHE_HOME:-$HOME/.cache}/ani-hsts"'		# Edit the history file of ani-cli
+alias ud="doas dnf upgrade; flatpak update -y;"			# ud for quick update
+#alias toolbox='systemctl start iscsid open-iscsi'			# start the iSCSI services 
+cdwork () {
+	lxc list status=running | grep -q quarch || lxc start quarch
+	lxc exec quarch -- su --login kosmx
+}
+
+# NO crontab -r
+crontab () { [[ $@ =~ -[iel]*r ]] && echo '"r" not allowed' || command crontab "$@" ;}
