@@ -1,0 +1,129 @@
+{
+
+    //***************************
+    //*  Modules configuration  *
+    //***************************
+
+    "custom/junkyard": {
+        "format": " 󰕮 ",
+        "on-click": "hyprctl dispatch togglespecialworkspace"
+    },
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "tooltip-format": "{title}",
+        "on-scroll-up": "hyprctl dispatch workspace r+1",
+        "on-scroll-down": "hyprctl dispatch workspace r-1",
+        "on-click": "activate"
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%a, %d %b, %R}",
+				"on-click": ""
+    },
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        //"reverse-scrolling": 1,
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{icon}  {volume}% {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "婢 {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "",
+            "headset": "󰋎",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["󰸈", "󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "~/.config/rofi/applets/bin/volume.sh",
+        "on-click-right": "pavucontrol"
+    },
+
+		"bluetooth": {
+			"format": "",
+			"format-disabled": "",
+			"format-connected": " {num_connections}",
+			"tooltip-format-enumerate-connected": "{device_alias}",
+			"tooltip-format-connected": "{device_enumerate}",
+			"on-click": "blueman-manager"
+		},
+
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": false
+    },
+
+    "tray": {
+        "icon-size": 13,
+        "spacing": 00
+    },
+
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+          "notification": "<span foreground='red'><sup></sup></span>",
+          "none": "",
+          "dnd-notification": "<span foreground='red'><sup></sup></span>",
+          "dnd-none": "",
+          "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+          "inhibited-none": "",
+          "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+          "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        //"on-click": "sh -c 'sleep 0.1s; swaync-client -t -sw; sleep 0.1s'",
+        "on-click-release": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+	"backlight": {
+    "device": "acpi_video0",
+    "format": "{icon}",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+		"on-click": "~/.config/rofi/applets/bin/brightness.sh"
+	},
+
+	"battery": {
+		"states": {
+			"warning": 20,
+			"critical": 5
+		},
+		"format": "{capacity}% {icon}",
+		"format-charging": "{capacity}% 󰂄",
+		"format-plugged": "{capacity}% 󰚥",
+		"format-alt": "{time} {icon}",
+		"format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂁", "󰁹"],
+		"on-click": "~/.config/rofi/applets/bin/powermenu.sh"
+	},
+	"battery#bat0": {
+		"bat": "BAT0"
+	},
+	"network": {
+		"format-wifi": "{icon}",
+		"format-ethernet": "󰈀",
+		"format-linked": "󰤩",
+		"format-disconnected": "󰤮",
+		"tooltip-format": "{ifname}",
+		"tooltip-format-wifi": "{essid} {signaldBm}dBm | Downlink: {bandwidthDownBits}, Uplink: {bandwidthUpBits}",
+		"tooltip-format-ethernet": "{essid} | Downlink: {bandwidthDownBits}, Uplink: {bandwidthUpBits} | IP: {ipaddr} GW:{gwaddr}",
+		"tooltip-format-disconnected": "Disconnected",
+		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+		"on-click": "~/.config/rofi/applets/bin/rofi-wifi-menu.sh",
+		"on-click-right": "nm-connection-editor"
+	}
+}

@@ -1,0 +1,19 @@
+{
+  "layer": "top",
+  "position": "top",
+  "include": [
+    "~/.config/waybar/modules.jsonc"
+  ],
+	"height": 20,
+  "margin-left": 3, 
+  "margin-right": 3,
+  "margin-top": 3,
+  "margin-bottom": 3,
+  "modules-left": ["custom/junkyard", "hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["tray", "custom/notification", "pulseaudio", "bluetooth", "network", "backlight", "battery"],
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
+}
