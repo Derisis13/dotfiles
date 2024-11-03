@@ -9,7 +9,7 @@
 - waybar: .config/waybar + install awesomefonts (todo: script)
 - rofi: .config/rofi + extract neccessary parts from https://github.com/adi1090x/rofi install script
 - rofi-qalc: needs rofi-wayland-1.7.5+wayland2-3.fc40.x86_64 (find it in downloads or fedora build system) until ABI is fixed, rofi-devel, then compile this by hand: https://github.com/svenstaro/rofi-calc
-- sddm: dependency: `qt6-qtquickcontrols2 qt6-qtsvg` then `# systemctl set-default graphical.target` -> /etc/sddm.conf & /usr/share/sddm/themes/catppuccin-macchiato/
+- sddm: dependency: `qt6-qtquickcontrols2 qt6-qtsvg`, copy sddm/sddm.conf -> /etc/sddm.conf & sddm/themes/catppuccin-macchiato -> /usr/share/sddm/themes/catppuccin-macchiato/ then `# systemctl set-default graphical.target`
 - nvim: .config/nvim + alacritty done + deps: clang (gcc-c++), unzip, npm, ripgrep, then proceed with nvchad init
 - swaync: .config/swaync
 - gtk: .config/gtk-*
