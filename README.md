@@ -1,6 +1,6 @@
 # HA5PLS's fedora install documentation
 - partitioning: differs every time
-- dnf: todo (preferences + repos)
+- dnf: `# dnf history replay ./transaction.json` Automatic generation of this file is TODO
 - packages: todo barusu + base system + repo carry
 - alacritty: .config/alacritty/alacritty.toml + fira_code_mono_nerd_font installed (todo: script)
 - zsh: $ZDOTDIR set in /etc/zshenv + omz install (todo:script) + .config/zsh + install fzf-tab plugin (git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab) + for some reason $XDG_STATE_HOME/zsh needs to be created manually
@@ -13,15 +13,14 @@
 - nvim: .config/nvim + alacritty done + deps: clang (gcc-c++), unzip, npm, ripgrep, then proceed with nvchad init
 - swaync: .config/swaync
 - gtk: .config/gtk-*
-- dconf-based: barusu
+- MPV: $XDG_CONFIG_HOME/mpv/
+- QT5: .config/qt6ct/, xsettingsd/
+- dconf-based: barusu (TODO)
 - kdeconnect: `# firewall-cmd --permanent --add-service=kdeconnect` + needs kdeconnectd restart to work
 - plymouth: /usr/share/plymouth/themes/fedora-mac-style + plymouth-plugin-two-step and abattis-cantarell-fonts installed + (`plymouth-set-default-theme -l` -> if this displays the theme, installation can begin: `sudo plymouth-set-default-theme -R fedora-mac-style && sudo dracut --regenerate-all -f`)
 - grub: /etc/default/grub + /boot/themes + `grub2-mkconfig -o /boot/grub2/grub.cfg`
 - udev: /etc/udev/rules.d/ (for setting driver permissions)
 - selinux: /etc/selinux/config to stay permissive (why even bother with selinux?)
-- MPV: $XDG_CONFIG_HOME/mpv/
-- QT5: PAIN. No idea. Maybe QT_PLATFORMTHEME, maybe KVANTUM. Still looks like ass.
-- lxd: do I need it? Replace with flatpak quartus & modelsim
 
 # Thanks to:
 - [Kosmx](https://github.com/KosmX/) for providing help and [dotfiles to steal from](https://github.com/KosmX/hypr-dots)
