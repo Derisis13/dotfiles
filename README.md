@@ -17,7 +17,7 @@
 - QT5: .config/qt6ct/, xsettingsd/
 - dconf-based: barusu (TODO)
 - kdeconnect: `# firewall-cmd --permanent --add-service=kdeconnect` + needs kdeconnectd restart to work
-- plymouth: /usr/share/plymouth/themes/fedora-mac-style + plymouth-plugin-two-step and abattis-cantarell-fonts installed + (`plymouth-set-default-theme -l` -> if this displays the theme, installation can begin: `sudo plymouth-set-default-theme -R fedora-mac-style && sudo dracut --regenerate-all -f`)
+- plymouth: copy plymouth/themes/fedora-mac-style -> /usr/share/plymouth/themes/fedora-mac-style + plymouth-plugin-two-step and abattis-cantarell-fonts installed + (`plymouth-set-default-theme -l` -> if this displays the theme, installation can begin: `sudo plymouth-set-default-theme -R fedora-mac-style && sudo dracut --regenerate-all -f`)
 - grub: /etc/default/grub + /boot/themes + `grub2-mkconfig -o /boot/grub2/grub.cfg`
 - udev: /etc/udev/rules.d/ (for setting driver permissions)
 - selinux: /etc/selinux/config to stay permissive (why even bother with selinux?)
