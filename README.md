@@ -24,9 +24,10 @@
 
 # Thanks to:
 - [Kosmx](https://github.com/KosmX/) for providing help and [dotfiles to steal from](https://github.com/KosmX/hypr-dots)
-- [Catpuccin](https://github.com/catppuccin/) for providing a nice theme ported to many platforms.
+- [Catppuccin](https://github.com/catppuccin/) for providing a nice theme ported to many platforms.
 - [NvChad](https://github.com/NvChad/) for providing a powerful & extensible neovim config that helps me at my job.
 - Tobilinuxer on gnome-look.org for making [this](https://www.gnome-look.org/p/2106821) plymouth theme
+- adi1090x for his [rofi scripts](https://github.com/adi1090x/rofi)
 - [The ani-cli discord](https://discord.com/invite/aqu7GpqVmR) for providing general support and help writing these files.
 - The creators of the tools these config files belong to for providing me all of this free software.
 - Anyone else who I forgot, but stole, copied, yoinked or inspired from or helped me in any other way.
