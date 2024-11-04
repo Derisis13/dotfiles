@@ -18,7 +18,7 @@
 - dconf-based: barusu (TODO)
 - kdeconnect: `# firewall-cmd --permanent --add-service=kdeconnect` + needs kdeconnectd restart to work
 - plymouth: copy plymouth/themes/fedora-mac-style -> /usr/share/plymouth/themes/fedora-mac-style + plymouth-plugin-two-step and abattis-cantarell-fonts installed + (`plymouth-set-default-theme -l` -> if this displays the theme, installation can begin: `sudo plymouth-set-default-theme -R fedora-mac-style && sudo dracut --regenerate-all -f`)
-- grub: /etc/default/grub + /boot/themes + `grub2-mkconfig -o /boot/grub2/grub.cfg`
+- grub: copy grub/grub -> /etc/default/grub & grub/themes -> /boot/themes then `grub2-mkconfig -o /boot/grub2/grub.cfg`
 - udev: /etc/udev/rules.d/ (for setting driver permissions)
 - selinux: /etc/selinux/config to stay permissive (why even bother with selinux?)
 
@@ -26,6 +26,7 @@
 - [Kosmx](https://github.com/KosmX/) for providing help and [dotfiles to steal from](https://github.com/KosmX/hypr-dots)
 - [Catpuccin](https://github.com/catppuccin/) for providing a nice theme ported to many platforms.
 - [NvChad](https://github.com/NvChad/) for providing a powerful & extensible neovim config that helps me at my job.
+- Tobilinuxer on gnome-look.org for making [this](https://www.gnome-look.org/p/2106821) plymouth theme
 - [The ani-cli discord](https://discord.com/invite/aqu7GpqVmR) for providing general support and help writing these files.
 - The creators of the tools these config files belong to for providing me all of this free software.
 - Anyone else who I forgot, but stole, copied, yoinked or inspired from or helped me in any other way.
