@@ -4,8 +4,8 @@
 - packages: todo barusu + base system + repo carry
 - alacritty: .config/alacritty/alacritty.toml + fira_code_mono_nerd_font installed (todo: script)
 - zsh: $ZDOTDIR set in /etc/zshenv + omz install (todo:script) + .config/zsh + install fzf-tab plugin (git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab) + for some reason $XDG_STATE_HOME/zsh needs to be created manually
-- hypr*: .config/hypr
-- hyprpaper: .config/hypr + .local/wallpapers
+- hypr*: .config/hypr, install hyprlock, hyprsunset, hypridle, 
+- hyprpaper: .config/hypr + download from [here](https://www.flickr.com/photos/nasahqphoto/5914101671/in/photostream/) to .local/wallpapers
 - waybar: .config/waybar + install awesomefonts (todo: script)
 - rofi: .config/rofi + extract neccessary parts from https://github.com/adi1090x/rofi install script
 - rofi-qalc: needs rofi-wayland-1.7.5+wayland2-3.fc40.x86_64 (find it in downloads or fedora build system) until ABI is fixed, rofi-devel, then compile this by hand: https://github.com/svenstaro/rofi-calc
