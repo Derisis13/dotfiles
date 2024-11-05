@@ -23,14 +23,13 @@
 - selinux: /etc/selinux/config to stay permissive (why even bother with selinux?)
 - firefox(librewolf btw): do your own profile, install [catpuccin theme](https://github.com/catppuccin/firefox) and [darkreader](https://darkreader.org/)
 
-<details><summary><i>Showcase</i></summary>
-    [background](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/bare.png)<br>
-    [nvim](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/nvim.png)<br>
-    [fetch](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/fetch.png)<br>
-    [launcher](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/ff_launcher.png)<br>
-    [control center](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/control_center_menu.png.png)<br>
-    [btop](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/btop.png)
-</details>
+# Showcase
+![background](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/bare.png)<br>
+![nvim](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/nvim.png)<br>
+![fetch](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/fetch.png)<br>
+![launcher](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/ff_launcher.png)<br>
+![control center](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/control_center_menu.png.png)<br>
+![btop](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/btop.png)
 
 
 # Thanks to:
