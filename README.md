@@ -28,7 +28,7 @@
 ![nvim](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/nvim.png)<br>
 ![fetch](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/fetch.png)<br>
 ![launcher](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/ff_launcher.png)<br>
-![control center](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/control_center_menu.png.png)<br>
+![control center](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/control_center_menu.png)<br>
 ![btop](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/btop.png)
 
 
