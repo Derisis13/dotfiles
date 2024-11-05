@@ -25,12 +25,19 @@
 
 <details>
     <summary><i>Showcase</i></summary>
+
     ![background](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/bare.png)
+
     ![nvim](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/nvim.png)
+
     ![fetch](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/fetch.png)
+
     ![launcher](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/ff_launcher.png)
+
     ![control center](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/control_center_menu.png.png)
+
     ![btop](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/btop.png)
+
 </details>
 
 
