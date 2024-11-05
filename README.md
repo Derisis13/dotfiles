@@ -5,7 +5,7 @@
 - alacritty: .config/alacritty/alacritty.toml + fira_code_mono_nerd_font installed (todo: script)
 - zsh: $ZDOTDIR set in /etc/zshenv + omz install (todo:script) + .config/zsh + install fzf-tab plugin (git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab) + for some reason $XDG_STATE_HOME/zsh needs to be created manually
 - hypr*: .config/hypr, install hyprlock, hyprsunset, hypridle, 
-- hyprpaper: .config/hypr + download from [here](https://www.flickr.com/photos/nasahqphoto/5914101671/in/photostream/) to .local/wallpapers
+- hyprpaper: .config/hypr + download from [here](https://www.flickr.com/photos/nasahqphoto/5914101671/in/photostream/) to .local/wallpapers (also used for grub & sddm & hyprlock)
 - waybar: .config/waybar + install awesomefonts (todo: script)
 - rofi: .config/rofi + extract neccessary parts from https://github.com/adi1090x/rofi install script
 - rofi-qalc: needs rofi-wayland-1.7.5+wayland2-3.fc40.x86_64 (find it in downloads or fedora build system) until ABI is fixed, rofi-devel, then compile this by hand: https://github.com/svenstaro/rofi-calc
@@ -21,6 +21,18 @@
 - grub: copy grub/grub -> /etc/default/grub & grub/themes -> /boot/themes then `grub2-mkconfig -o /boot/grub2/grub.cfg`
 - udev: /etc/udev/rules.d/ (for setting driver permissions)
 - selinux: /etc/selinux/config to stay permissive (why even bother with selinux?)
+- firefox(librewolf btw): do your own profile, install [catpuccin theme](https://github.com/catppuccin/firefox) and [darkreader](https://darkreader.org/)
+
+<details>
+    <summary><i>Showcase</i></summary>
+    ![background](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/bare.png)
+    ![nvim](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/nvim.png)
+    ![fetch](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/fetch.png)
+    ![launcher](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/ff_launcher.png)
+    ![control center](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/control_center_menu.png.png)
+    ![btop](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/btop.png)
+</details>
+
 
 # Thanks to:
 - [Kosmx](https://github.com/KosmX/) for providing help and [dotfiles to steal from](https://github.com/KosmX/hypr-dots)
