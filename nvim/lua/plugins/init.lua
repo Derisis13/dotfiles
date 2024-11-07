@@ -39,6 +39,9 @@ return {
         -- shell
         "shellcheck",
 
+        -- Hyprlang
+        "hyrpls",
+
         -- hdl
         "rust_hdl",
       },
@@ -61,6 +64,7 @@ return {
         "python",
         "latex",
         "vhdl",
+        "hyprlang",
       },
       indent = {
         enable = true,
