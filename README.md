@@ -18,8 +18,8 @@
 - QT5: .config/qt6ct/, xsettingsd/
 - dconf-based: barusu (TODO)
 - kdeconnect: `# firewall-cmd --permanent --add-service=kdeconnect` + needs kdeconnectd restart to work
-- plymouth: copy plymouth/themes/fedora-mac-style -> /usr/share/plymouth/themes/ + plymouth-plugin-two-step + (`plymouth-set-default-theme -l` -> if this displays the theme, installation can begin: `sudo plymouth-set-default-theme -R fedora-mac-style && sudo dracut --regenerate-all -f`)
-- grub: copy grub/grub -> /etc/default/grub & grub/themes -> /boot/themes then `grub2-mkconfig -o /boot/grub2/grub.cfg` To change font, you need grub2-tools-extra (for grub2-mkfont) and use it like `grub2-mkfont -o grub/themes/catppuccin-macchiato/font.pf2 -s 24 /usr/share/fonts/<family>/<specimen>.ttf`
+- plymouth: copy plymouth/themes/fedora-mac-style -> /usr/share/plymouth/themes/ + install plymouth-plugin-two-step + (`plymouth-set-default-theme -l` -> if this displays the theme, installation can begin: `sudo plymouth-set-default-theme -R fedora-mac-style && sudo dracut --regenerate-all -f`)
+- grub: copy grub/grub -> /etc/default/grub & grub/themes -> /boot/themes then `grub2-mkconfig -o /boot/grub2/grub.cfg` To change font, you need grub2-tools-extra (for grub2-mkfont) and use it like `grub2-mkfont -o grub/themes/catppuccin-macchiato/font.pf2 -s 24 /usr/share/fonts/<family>/<specimen>.ttf` (after this you have to copy the configs again and regenerate the boot image)
 - udev: /etc/udev/rules.d/ (for setting driver permissions)
 - selinux: /etc/selinux/config to stay permissive (why even bother with selinux?)
 - firefox(librewolf btw): do your own profile, install [catpuccin theme](https://github.com/catppuccin/firefox) and [darkreader](https://darkreader.org/)
