@@ -90,11 +90,11 @@ confirm_run () {
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
-		hyprlock -c $XDG_CONFIG_HOME/hypr/hyprlock.conf --immediate
+	  loginctl lock-session
 	elif [[ "$1" == '--opt2' ]]; then
-		confirm_run 'kill -9 -1'
+		confirm_run 'hyprctl dispatch exit'
 	elif [[ "$1" == '--opt3' ]]; then
-		confirm_run 'mpc -q pause' 'amixer set Master mute' 'systemctl suspend'
+		confirm_run 'systemctl suspend'
 	elif [[ "$1" == '--opt4' ]]; then
 		confirm_run 'systemctl hibernate'
 	elif [[ "$1" == '--opt5' ]]; then
