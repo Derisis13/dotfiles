@@ -6,7 +6,7 @@ title-text: ""
 desktop-image: "background.png"
 desktop-image-scale-method: "stretch"
 desktop-color: "#24273A"
-terminal-font: "Unifont Regular 16"
+terminal-font: "FiraCode Nerd Font"
 terminal-left: "0"
 terminal-top: "0"
 terminal-width: "100%"
@@ -26,7 +26,7 @@ terminal-border: "0"
   top = 60%
   width = 480
   height = 30%
-  item_font = "Unifont Regular 16"
+  item_font = "Roboto"
   item_color = "#CAD3F5"
   selected_item_color = "#CAD3F5"
   icon_width = 32

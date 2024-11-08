@@ -4,8 +4,8 @@ Description=Fedora boot animation, inspired by the Boot animation of macOS.
 ModuleName=two-step
 
 [two-step]
-Font=Fira Sans 12
-TitleFont=Fira Sans Light 30
+Font=Roboto 12
+TitleFont=Roboto Light 30
 ImageDir=/usr/share/plymouth/themes/fedora-mac-style
 DialogHorizontalAlignment=.5
 DialogVerticalAlignment=.5
