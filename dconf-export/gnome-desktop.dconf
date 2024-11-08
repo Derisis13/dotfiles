@@ -1,0 +1,22 @@
+[background]
+picture-uri='file:///home/ha5pls/.local/share/backgrounds/eKxlw8.png'
+picture-uri-dark='file:///home/ha5pls/.local/share/backgrounds/eKxlw8.png'
+
+[interface]
+color-scheme='prefer-dark'
+cursor-size=24
+cursor-theme='Adwaita'
+document-font-name='Fira Sans Book'
+font-antialiasing='grayscale'
+font-hinting='slight'
+font-name='Roboto 11'
+font-rgba-order='rgb'
+gtk-theme='adw-gtk3-dark'
+icon-theme='Pop'
+text-scaling-factor=1.0
+toolbar-icons-size='large'
+toolbar-style='both-horiz'
+
+[sound]
+event-sounds=true
+input-feedback-sounds=false

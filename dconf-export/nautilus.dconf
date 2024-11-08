@@ -1,0 +1,12 @@
+[icon-view]
+default-zoom-level='small'
+
+[preferences]
+default-folder-viewer='icon-view'
+migrated-gtk-settings=true
+search-filter-time-type='last_modified'
+search-view='list-view'
+
+[window-state]
+initial-size=(1280, 720)
+maximized=true

@@ -13,16 +13,18 @@
 - sddm: dependency: `qt6-qtquickcontrols2 qt6-qtsvg`, copy sddm/sddm.conf -> /etc/sddm.conf & sddm/themes/catppuccin-macchiato -> /usr/share/sddm/themes/ then `# systemctl set-default graphical.target`
 - nvim: .config/nvim + alacritty done + deps: clang (gcc-c++), unzip, npm, ripgrep, go, then proceed with nvchad init
 - swaync: .config/swaync
-- gtk: .config/gtk-*
+- gtk: .config/gtk-*, `dconf load /org/gtk/gtk4 < ./dconf-export/gtk4.dconf`
 - MPV: $XDG_CONFIG_HOME/mpv/
 - QT5: .config/qt6ct/, xsettingsd/
-- dconf-based: barusu (TODO)
 - kdeconnect: `# firewall-cmd --permanent --add-service=kdeconnect` + needs kdeconnectd restart to work
 - plymouth: copy plymouth/themes/fedora-mac-style -> /usr/share/plymouth/themes/ + install plymouth-plugin-two-step + (`plymouth-set-default-theme -l` -> if this displays the theme, installation can begin: `sudo plymouth-set-default-theme -R fedora-mac-style && sudo dracut --regenerate-all -f`)
 - grub: copy grub/grub -> /etc/default/grub & grub/themes -> /boot/themes then `grub2-mkconfig -o /boot/grub2/grub.cfg` To change font, you need grub2-tools-extra (for grub2-mkfont) and use it like `grub2-mkfont -o grub/themes/catppuccin-macchiato/font.pf2 -s 24 /usr/share/fonts/<family>/<specimen>.ttf` (after this you have to copy the configs again and regenerate the boot image)
 - udev: /etc/udev/rules.d/ (for setting driver permissions)
 - selinux: /etc/selinux/config to stay permissive (why even bother with selinux?)
 - firefox(librewolf btw): do your own profile, install [catpuccin theme](https://github.com/catppuccin/firefox) and [darkreader](https://darkreader.org/)
+- gnome tooling (file picker, keyring, etc): dconf load `/org/gnome/desktop/ < ./dconf-export/gnome-desktop.dconf`
+- nautilus (file manager): gtk set up, then `dconf load /org/gnome/nautilus < ./dconf-export/nautilus.dconf`
+- gedit (gui text editor): gtk set up, then `dconf load /org/gnome/gedit < ./dconf-export/gedit.dconf`
 
 # Showcase
 ![background](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/bare.png)<br>

@@ -1,0 +1,18 @@
+[preferences/editor]
+display-line-numbers=false
+display-right-margin=false
+editor-font='FiraCode Nerd Font Mono 11'
+highlight-current-line=false
+scheme='classic'
+use-default-font=false
+wrap-last-split-mode='word'
+
+[preferences/ui]
+statusbar-visible=true
+
+[state/window]
+bottom-panel-size=140
+side-panel-active-page='GeditWindowDocumentsPanel'
+side-panel-size=200
+size=(635, 285)
+state=43908
