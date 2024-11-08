@@ -30,7 +30,6 @@
     },
     "widgets": [
       "label",
-			"menubar",
       "mpris",
       "backlight",
       "volume",
@@ -62,40 +61,7 @@
       },
       "volume": {
         "label": ""
-      },
-      "menubar": {
-        "menu#power-buttons": {
-          "label": "", 
-          "position": "right",
-          "actions": [ 
-            {
-              "label": "   Reboot",
-              "command": "systemctl reboot"
-            },
-            {
-              "label": "   Lock",
-              "command": "hyprlock -c $XDG_CONFIG_HOME/hypr/hyprlock.conf --immediate"
-            },
-            {
-              "label": "   Logout",
-              "command": "loginctl terminate-session ${XDG_SESSION_ID-}"
-            },
-            {
-              "label": "   Shut down",
-              "command": "systemctl poweroff"
-            }
-          ]
-        },
-        "menu#app-launcher": {
-          "label": "󰍜",
-          "position": "right",
-          "actions": [
-            {
-              "label": "",
-              "command": "nm-connection-editor"
-            }
-          ]
-        }
+      }
       }
     }
   }
