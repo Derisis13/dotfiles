@@ -20,7 +20,7 @@ slider {
   background-color: #8aadf4;
 }
 
-.floating-notifications.background .notification-row .notification-background {
+.floating-notifications.background .notification-row .notification-background .notification {
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px #363a4f;
   border-radius: 12.6px;
   border: 1px solid #8aadf4;
@@ -28,12 +28,6 @@ slider {
   background-color: #24273a;
   color: #cad3f5;
   padding: 0;
-}
-
-.floating-notifications.background .notification-row .notification-background .notification {
-  padding: 7px;
-  border-radius: 12.6px;
-  border: 1px solid #8aadf4;
 }
 
 .floating-notifications.background .notification-row .notification-background .notification.critical {
