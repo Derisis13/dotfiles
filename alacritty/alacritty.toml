@@ -17,8 +17,8 @@ dynamic_padding = true
 opacity = 0.7
 
 [window.padding]
-x = 0
-y = 0
+x = 5
+y = 5
 
 [general]
 # [colors.bright]
