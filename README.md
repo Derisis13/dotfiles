@@ -1,10 +1,10 @@
 # HA5PLS's fedora install documentation
 - partitioning: differs every time
-- dnf: `cat ./dnf_packages.list | xargs sudo dnf install` Automatic generation of this file is TODO. Note that these are my packages, filter them for your personal needs. Some may be dependencies of other tools (eg. mostly for nvim and LSPs)
+- dnf: `cat ./dnf_packages.list | xargs sudo dnf install` Automatic generation of this file is TODO. Note that these are my packages, filter them for your personal needs. Some may be dependencies of other tools (eg. mostly for nvim and LSPs) (in 41 you need to use dnf4 explicitly: `dnf4 history userinstalled > dnf_packages.list`)
 - packages: todo barusu + base system + repo carry
 - alacritty: .config/alacritty/alacritty.toml + fira_code_mono_nerd_font installed (todo: script)
 - serif font: install google-roboto-fonts (used in gtk, qt, waybar)
-- zsh: $ZDOTDIR set in /etc/zshenv + omz install (todo:script) + .config/zsh + install fzf-tab plugin (git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab) + for some reason $XDG_STATE_HOME/zsh needs to be created manually
+- zsh: $ZDOTDIR set in /etc/zshenv + omz install (todo:script) + .config/zsh + install fzf-tab plugin (git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab, needs sqlite as dependency) + for some reason $XDG_STATE_HOME/zsh needs to be created manually
 - hypr*: .config/hypr, install hyprlock, hyprsunset, hypridle, 
 - hyprpaper: .config/hypr + download from [here](https://www.flickr.com/photos/nasahqphoto/5914101671/in/photostream/) to .local/wallpapers (also used for grub & sddm & hyprlock)
 - waybar: .config/waybar + install fontawesome4-fonts (for icons)
