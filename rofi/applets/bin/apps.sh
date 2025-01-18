@@ -22,7 +22,7 @@ elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
 fi
 
 # CMDs (add your apps here)
-term_cmd='alacritty'
+term_cmd='kitty'
 file_cmd='nautilus'
 text_cmd='gedit'
 web_cmd='flatpak run io.gitlab.librewolf-community'
