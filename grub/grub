@@ -1,9 +1,0 @@
-GRUB_TIMEOUT=3
-GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
-GRUB_DEFAULT=saved
-GRUB_DISABLE_SUBMENU=true
-# GRUB_TERMINAL_OUTPUT="console"
-GRUB_CMDLINE_LINUX="rd.luks.uuid=luks-5e345064-0ca5-4162-a7ef-624907ae9adf rhgb quiet"
-GRUB_DISABLE_RECOVERY="true"
-GRUB_ENABLE_BLSCFG=true
-GRUB_THEME="/boot/themes/catppuccin-macchiato-grub-theme/theme.txt"
