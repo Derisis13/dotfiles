@@ -57,12 +57,21 @@ button {
 #custom-notification,
 #pulseaudio,
 #network,
+#memory,
 #bluetooth {
   background-color: @base; /* Change this to any gray color you want */
   border-radius: 0px; /* Adjust as needed */
   padding: 3px 7px;
   color: @text;
   margin: 0px;
+}
+
+#cpu {
+  background-color: @base; /* Change this to any gray color you want */
+  border-radius: 0px 10px 10px 0px; /* Adjust as needed */
+  padding: 3px 10px;
+  color: @text;
+  min-width: 130px;
 }
 
 #backlight {
@@ -92,6 +101,13 @@ button {
   border-radius: 10px;
   padding: 3px 10px;
   color: @text;
+}
+
+#group-power {
+  background-color: @base;
+  border-radius: 10px;
+  padding: 3px 5px;
+  margin-left: 3px;
 }
 
 #battery {

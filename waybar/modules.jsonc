@@ -12,8 +12,8 @@
     "hyprland/workspaces": {
         "format": "{name}",
         "tooltip-format": "{title}",
-        "on-scroll-up": "hyprctl dispatch workspace r+1",
-        "on-scroll-down": "hyprctl dispatch workspace r-1",
+        "on-scroll-up": "hyprctl dispatch workspace r-1",
+        "on-scroll-down": "hyprctl dispatch workspace r+1",
         "on-click": "activate"
     },
     "clock": {
@@ -91,12 +91,66 @@
         "escape": true
     },
 
-	"backlight": {
-    "device": "acpi_video0",
-    "format": "{icon}",
-    "format-icons": ["󰃞", "󰃟", "󰃠"],
-		"on-click": "~/.config/rofi/applets/bin/brightness.sh"
-	},
+  "cpu": {
+    "interval": 1,
+    "format": "  {usage:02d}%{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
+    "format-icons": [
+      "<span color='#a6da95'>▁</span>", // green
+      "<span color='#8aadf4'>▂</span>", // blue
+      "<span color='#8aadf4'>▃</span>", // white
+      "<span color='#8aadf4'>▄</span>", // white
+      "<span color='#8aadf4'>▅</span>", // yellow
+      "<span color='#eed49f'>▆</span>", // yellow
+      "<span color='#f5a97f'>▇</span>", // orange
+      "<span color='#ed8796'>█</span>"  // red
+     ]
+  },
+
+  "memory": {
+      "interval": 5,
+      "format": "󰍛 {percentage}%"
+  },
+
+  "group/group-power": {
+      "orientation": "inherit",
+      "drawer": {
+          "transition-duration": 500,
+          "children-class": "not-power",
+          "transition-left-to-right": true
+      },
+      "modules": [
+          "custom/power", // First element is the "group leader" and won't ever be hidden
+          "custom/reboot",
+          "custom/quit",
+          "custom/suspend",
+          "custom/lock"
+      ]
+  },
+  "custom/quit": {
+      "format": " 󰗼 ",
+      "tooltip": false,
+      "on-click": "hyprctl dispatch exit"
+  },
+  "custom/lock": {
+      "format": " 󰍁 ",
+      "tooltip": false,
+      "on-click": "loginctl lock-session"
+  },
+  "custom/suspend": {
+    "format": " 󰒲 ",
+    "tooltip": false,
+    "on-click": "systemctl suspend"
+  },
+  "custom/reboot": {
+      "format": " 󰜉 ",
+      "tooltip": false,
+      "on-click": "systemctl reboot"
+  },
+  "custom/power": {
+      "format": "  ",
+      "tooltip": false,
+      "on-click": "systemctl poweroff"
+  },
 
 	"battery": {
 		"states": {
@@ -113,6 +167,7 @@
 	"battery#bat0": {
 		"bat": "BAT0"
 	},
+
 	"network": {
 		"format-wifi": "{icon}",
 		"format-ethernet": "󰈀",
