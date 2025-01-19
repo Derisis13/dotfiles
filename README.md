@@ -2,6 +2,7 @@
 To automatically setup the system, use the script `fedora.sh`, or run trough the manual setup.
 <details>
 <summary>Manual steps (this is what the script does)</summary>
+
 - partitioning: differs every time, done at install
 - dnf: `cat ./dnf_packages.list | xargs sudo dnf install` Note that these are my packages, filter them for your personal needs. Some may be dependencies of other tools (eg. mostly for nvim and LSPs) (to generate, use `dnf repoquery --userinstalled > dnf_packages.list`)
 - Flathub: `flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo`
@@ -28,6 +29,7 @@ To automatically setup the system, use the script `fedora.sh`, or run trough the
 - gnome tooling (file picker, keyring, etc): `dconf load /org/gnome/desktop/ < ./dconf-export/gnome-desktop.dconf`
 - nautilus (file manager): gtk set up, then `dconf load /org/gnome/nautilus < ./dconf-export/nautilus.dconf`
 - gedit (gui text editor): gtk set up, then `dconf load /org/gnome/gedit < ./dconf-export/gedit.dconf`
+
 </details>
 
 # Showcase
