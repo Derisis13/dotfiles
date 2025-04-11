@@ -28,3 +28,6 @@ autocmd({'BufEnter', 'BufWinEnter'}, {
 
 vim.g.vscode_snippets_path = "~/.config/nvim/snippets"
 vim.opt.relativenumber = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
