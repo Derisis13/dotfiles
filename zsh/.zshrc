@@ -153,14 +153,5 @@ fi
 # pkg-config correction (by the readme of DSView-1.12)
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
-# XILINX
-XILINX_EDK=/media/lacko/TOOLBOX/ISE/14.7/ISE_DS/EDK
-XILINX_PLANAHEAD=/media/lacko/TOOLBOX/ISE/14.7/ISE_DS/PlanAhead
-XILINX_DSP=/media/lacko/TOOLBOX/ISE/14.7/ISE_DS/ISE
-XILINX=/media/lacko/TOOLBOX/ISE/14.7/ISE_DS/ISE
-export XILINX_EDK
-export XILINX_PLANAHEAD
-export XILINX_DSP
-export XILINX
-
-export VHDL_LS_CONFIG=$HOME/Desktop/work/global_fpga/_utilities_/vhdl_ls.toml
+# use yosys ghdl plugin
+#alias yosys="yosys -m ghdl.so"
