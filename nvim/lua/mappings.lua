@@ -97,3 +97,22 @@ end, { desc = "Gitsigns Blame line" })
 map("n", "<leader>td", function()
   require("gitsigns").toggle_deleted()
 end, { desc = "Gitsigns Toggle deleted" })
+
+-- molten related mappings
+map("n", "<localleader>ip", function()
+  local venv = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX")
+  if venv ~= nil then
+    -- in the form of /home/ha5pls/.local/state/virtualenvs/VENV_NAME
+    venv = string.match(venv, "/.+/(.+)")
+    vim.cmd(("MoltenInit %s"):format(venv))
+  else
+    vim.cmd("MoltenInit python3")
+  end
+end, { desc = "Initialize Molten for python3" })
+map("n", "<leader>mi", ":MoltenInit<CR>")
+map("n", "<leader>me", ":MoltenEvaluateOperator<CR>")
+map("n", "<leader>rr", ":MoltenReevaluateCell<CR>")
+map("v", "<leader>r", ":<C-u>MoltenEvaluateVisual<CR>gv")
+map("n", "<leader>os", ":noautocmd MoltenEnterOutput<CR>")
+map("n", "<leader>oh", ":MoltenHideOutput<CR>")
+map("n", "<leader>md", ":MoltenDelete<CR>")
