@@ -81,9 +81,9 @@ dconf load /org/gnome/nautilus < ~/.config/dconf-export/nautilus.dconf
 dconf load /org/gnome/gedit < ~/.config/dconf-export/gedit.dconf
 
 # rofi & rofi-calc (compilation, because why not)
-sudo dnf install --allowerasing --assumeyes https://kojipkgs.fedoraproject.org//packages/rofi-wayland/1.7.5+wayland2/3.fc40/$(uname -m)/rofi-wayland-1.7.5+wayland2-3.fc40.$(uname -m).rpm
-ensure_installed rofi-devel qalculate automake libtool
-git clone https://github.com/svenstaro/rofi-calc && cd rofi-calc && mkdir m4 && autoreconf -i && mkdir build && cd build && ../configure && make && sudo make install && cd ../.. && rm -rf rofi-calc
+ensure_installed rofi-wayland rofi-devel qalculate automake libtool
+git clone https://github.com/svenstaro/rofi-calc "~/.local/bin/build_stage/" && cd "~/.local/bin/build_stage/rofi-calc" && mkdir m4 && autoreconf -i && mkdir build && cd build && ../configure && make && sudo make install 
+cd
 
 # kdeconnect
 ensure_installed kdeconnectd
