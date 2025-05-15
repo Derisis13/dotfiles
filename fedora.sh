@@ -57,10 +57,20 @@ curl -o ~/.local/share/backgrounds/eKxlw8.jpg -fsSL "https://live.staticflickr.c
 ensure_installed swaync
 ensure_installed waybar fontawesome4-fonts
 
-# Install sddm
-ensure_installed sddm qt6-qtsvg qt5-qtquickcontrols2
-sudo cp ~/.config/sddm/sddm.conf /etc/sddm.conf
-sudo cp -r ~/.config/sddm/themes/catpuccin-macchiatto /usr/share/sddm/themes/
+# Install ReGreet
+ensure_installed cargo gtk4-devel cairo-gobject-devel pango-devel greetd
+sudo usermod -a -G video greetd
+sudo cp -r ~/.config/regreet/greetd /etc/greetd/
+sudo cp ~/.local/share/backgrounds/eKxlw8.jpg /etc/greetd/
+sudo cp ~/.config/gtk-4.0/gtk.css /etc/greetd/regreet.css
+sudo cp ~/.config/regreet/tmpfiles.conf /etc/tmpfiles.d/regreet.conf
+mkdir -p "~/.local/bin/build_stage/"
+git clone https://github.com/rharish101/ReGreet.git "~/.local/bin/build_stage/" &&
+    cd ~/.local/bin/build_stage/ReGreet/ &&
+    cargo build -F gtk4_8 --release &&
+    sudo cp ./target/release/regreet /usr/bin/ &&
+    systemctl enable greetd.service
+cd
 
 # Install grub
 ensure_installed grub2-common

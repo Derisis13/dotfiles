@@ -10,11 +10,12 @@ To automatically setup the system, use the script `fedora.sh`, or run trough the
 - serif font: install `google-roboto-fonts` (used in gtk, qt, waybar)
 - zsh: `\$ZDOTDIR` set in `/etc/zshenv` + omz install (`sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && mv ~/.oh-my-zsh ~/.local/share/oh-my-zsh && mkdir -p ~/.local/state/zsh/`) + `.config/zsh` + install fzf-tab plugin (git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab/, needs sqlite as dependency) + for some reason `$XDG_STATE_HOME/zsh` needs to be created manually
 - hypr*: `.config/hypr,` install `hyprlock`, `hyprsunset`, `hypridle`, 
-- hyprpaper: `.config/hypr` + download from [here](https://www.flickr.com/photos/nasahqphoto/5914101671/in/photostream/) by `curl -o .local/share/backgrounds/eKxlw8.jpg -fsSL "https://live.staticflickr.com/5077/5914101671_d80c6591e8_k.jpg` (also used for grub & sddm & hyprlock)
+- hyprpaper: `.config/hypr` + download from [here](https://www.flickr.com/photos/nasahqphoto/5914101671/in/photostream/) by `curl -o .local/share/backgrounds/eKxlw8.jpg -fsSL "https://live.staticflickr.com/5077/5914101671_d80c6591e8_k.jpg` (also used for grub & regreet & hyprlock)
 - waybar: `.config/waybar` + install `fontawesome4-fonts` (for icons)
 - rofi: `.config/rofi`
-- rofi-qalc: needs `rofi-wayland-1.7.5+wayland2-3.fc40.x86_64` (find it in downloads or fedora build system) until ABI is fixed, rofi-devel, then compile this by hand: https://github.com/svenstaro/rofi-calc
-- sddm: dependency: `qt6-qtquickcontrols2 qt6-qtsvg`, copy `sddm/sddm.conf` -> `/etc/sddm.conf` & `sddm/themes/catppuccin-macchiato` -> `/usr/share/sddm/themes/` then `# systemctl set-default graphical.target`
+- rofi-qalc: needs rofi-wayland, rofi-devel, then compile this by hand: https://github.com/svenstaro/rofi-calc
+- regreet (greetd greeter): needs cargo, gtk4-devel, cairo-gobject-devel, pango-devel and greetd; needs the greetd user added to `video` group, then complle this by hand: https://github.com/rharish101/ReGreet.git
+    Also moves config files to their places, including to `/etc/tmpfiles.d/`
 - nvim: `.config/nvim` + kitty done + deps: clang (gcc-c++), unzip, npm, ripgrep, go, then proceed with nvchad init
 - swaync: `.config/swaync`
 - gtk: `.config/gtk-*`, `dconf load /org/gtk/gtk4 < ./dconf-export/gtk4.dconf`
@@ -40,6 +41,8 @@ To automatically setup the system, use the script `fedora.sh`, or run trough the
 ![control center](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/control_center_menu.png)<br>
 ![btop](https://raw.githubusercontent.com/Derisis13/dotfiles/refs/heads/master/.assets/btop.png)
 
+# Licensing
+Licensed under the unlicense, unless stated otherwise in the file (eg. regreet.toml is under GPL-v3, as it is part of the regreet project)
 
 # Thanks to:
 - [Kosmx](https://github.com/KosmX/) for providing help and [dotfiles to steal from](https://github.com/KosmX/hypr-dots)
