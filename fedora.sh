@@ -29,6 +29,8 @@ ensure_installed () {
 sudo dnf update
 sudo dnf copr enable solopasha/hyprland
 sudo dnf copr enable tofik/sway
+sudo dnf copr enable derisis13/ani-cli
+sudo dnf copr enable rezso/hdl
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 
 # Edit then install packages
