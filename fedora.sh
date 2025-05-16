@@ -107,7 +107,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 flatpak install flatseal librewolf
 
 # set up neovim
-ensure_installed neovim clang unzip npm ripgrep go
+ensure_installed neovim clang unzip npm ripgrep go luarocks
 nvim
 
 # to finalize it all
