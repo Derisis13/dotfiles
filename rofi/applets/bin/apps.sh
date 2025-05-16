@@ -22,11 +22,11 @@ elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
 fi
 
 # CMDs (add your apps here)
-term_cmd='kitty'
-file_cmd='nautilus'
-text_cmd='gedit'
-web_cmd='flatpak run io.gitlab.librewolf-community'
-music_cmd=''
+term_cmd='uwsm app kitty'
+file_cmd='uwsm app nautilus'
+text_cmd='uwsm app gedit'
+web_cmd='uwsm app io.gitlab.librewolf-community.desktop'
+music_cmd='uwsm app com.github.iwalton3.jellyfin-mpv-shim.desktop'
 setting_cmd=''
 
 # Options

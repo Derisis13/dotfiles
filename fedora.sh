@@ -11,6 +11,10 @@ replace_config_line () {
   fi
 }
 
+set_unit () {
+    systemctl --user enable $*
+}
+
 replace_config_line "/etc/dnf/dnf.conf" "installonly_limit" "3"
 replace_config_line "/etc/dnf/dnf.conf" "best" "False"
 replace_config_line "/etc/dnf/dnf.conf" "skip_unavailable" "True"
@@ -55,9 +59,12 @@ printf "You'll need to relog to have your default shell changed\n"
 ensure_installed hyprland hyprpaper hypridle hyprlock hyprsunset
 mkdir -p ~/.local/share/backgrounds/
 curl -o ~/.local/share/backgrounds/eKxlw8.jpg -fsSL "https://live.staticflickr.com/5077/5914101671_d80c6591e8_k.jpg"
+set_unit hypridle.service hyprpaper.service hyprpolkitagent.service hyprsunset.service
 # desktop elements that just work
 ensure_installed swaync
+set_unit swaync.service
 ensure_installed waybar fontawesome4-fonts
+set_unit waybar.service
 
 # Install ReGreet
 ensure_installed cargo gtk4-devel cairo-gobject-devel pango-devel greetd
@@ -87,6 +94,7 @@ sudo plymouth-set-default-theme -R fedora-mac-style && sudo dracut --regenerate-
 
 # install gnome's stuff
 ensure_installed gnome-keying nautilus dconf gedit
+set_unit gnome-keying.service
 dconf load /org/gtk/gtk4 < ~/.config/dconf-export/gtk4.dconf
 dconf load /org/gnome/desktop < ~/.config/dconf-export/gnome-desktop.dconf
 dconf load /org/gnome/nautilus < ~/.config/dconf-export/nautilus.dconf

@@ -42,7 +42,7 @@
             "default": ["󰸈", "󰕿", "󰖀", "󰕾"]
         },
         "on-click": "~/.config/rofi/applets/bin/volume.sh",
-        "on-click-right": "pavucontrol"
+        "on-click-right": "uwsm app pavucontrol"
     },
 
 		"bluetooth": {
@@ -51,7 +51,7 @@
 			"format-connected": " {num_connections}",
 			"tooltip-format-enumerate-connected": "{device_alias}",
 			"tooltip-format-connected": "{device_enumerate}",
-			"on-click": "blueman-manager"
+			"on-click": "uwsm app blueman-manager"
 		},
 
     "temperature": {
@@ -129,7 +129,7 @@
   "custom/quit": {
       "format": " 󰗼 ",
       "tooltip": false,
-      "on-click": "hyprctl dispatch exit"
+      "on-click": "uwsm stop"
   },
   "custom/lock": {
       "format": " 󰍁 ",
