@@ -12,7 +12,7 @@ replace_config_line () {
 }
 
 set_unit () {
-    systemctl --user enable $*
+    systemctl --user enable --now $*
 }
 
 replace_config_line "/etc/dnf/dnf.conf" "installonly_limit" "3"
@@ -60,11 +60,13 @@ ensure_installed hyprland hyprpaper hypridle hyprlock hyprsunset
 mkdir -p ~/.local/share/backgrounds/
 curl -o ~/.local/share/backgrounds/eKxlw8.jpg -fsSL "https://live.staticflickr.com/5077/5914101671_d80c6591e8_k.jpg"
 set_unit hypridle.service hyprpaper.service hyprpolkitagent.service hyprsunset.service
+set_unit pipewire.service pipewire-pulse.service
 # desktop elements that just work
 ensure_installed swaync
 set_unit swaync.service
 ensure_installed waybar fontawesome4-fonts
 set_unit waybar.service
+set_unit cliphist.service
 
 # Install ReGreet
 ensure_installed cargo gtk4-devel cairo-gobject-devel pango-devel greetd
