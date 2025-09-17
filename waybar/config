@@ -4,7 +4,7 @@
   "include": [
     "~/.config/waybar/modules.jsonc"
   ],
-	"height": 20,
+	"height": 40,
   "margin-left": 3, 
   "margin-right": 3,
   "margin-top": 3,

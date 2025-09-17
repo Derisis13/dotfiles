@@ -24,9 +24,13 @@ replace_config_line "/etc/dnf/dnf.conf" "keepcache" "True"
 replace_config_line "/etc/dnf/dnf.conf" "max_parallel_downloads" "5"
 
 ensure_installed () {
-  for dep in !*; do
-    dnf list --installed "$dep" 2>&1 | grep -q "$dep" || sudo dnf install "$dep" --assumeyes --allowerasing
-  done
+    for dep in $*; do
+        if $(dnf list --installed "$dep" 2>&1 | grep -q "$dep") ; then
+            echo "${dep} already installed"
+        else
+            sudo dnf install "$dep" --assumeyes --allowerasing
+        fi
+    done
 }
 
 # Enable extra repos
@@ -47,11 +51,11 @@ printf "You'll need to reboot to have selinux disabled\n"
 
 # set up ZSH
 ensure_installed zsh fzf sqlite3
-replace_config_line '/etc/zshenv' 'export ZDOTDIR' '${HOME}/.config/zsh'
+replace_config_line '/etc/zshenv' 'export ZDOTDIR' '"$XDG_CONFIG_HOME"/zsh'
 mkdir -p ~/.local/state/zsh/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mv ~/.oh-my-zsh ~/.local/share/oh-my-zsh/   # TODO: figure out how to contol install location of script above. Maybe reboot/relog after xgd_user_dirs is installed?
-git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
 curl -O -fsSL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip && unzip FiraCode.zip *.ttf -d ~/.local/share/fonts/
 printf "You'll need to relog to have your default shell changed\n"
 
@@ -96,15 +100,14 @@ sudo plymouth-set-default-theme -R fedora-mac-style && sudo dracut --regenerate-
 
 # install gnome's stuff
 ensure_installed gnome-keying nautilus dconf gedit
-set_unit gnome-keying.service
-dconf load /org/gtk/gtk4 < ~/.config/dconf-export/gtk4.dconf
-dconf load /org/gnome/desktop < ~/.config/dconf-export/gnome-desktop.dconf
-dconf load /org/gnome/nautilus < ~/.config/dconf-export/nautilus.dconf
-dconf load /org/gnome/gedit < ~/.config/dconf-export/gedit.dconf
+dconf load /org/gtk/gtk4/ < ~/.config/dconf-export/gtk4.dconf
+dconf load /org/gnome/desktop/ < ~/.config/dconf-export/gnome-desktop.dconf
+dconf load /org/gnome/nautilus/ < ~/.config/dconf-export/nautilus.dconf
+dconf load /org/gnome/gedit/ < ~/.config/dconf-export/gedit.dconf
 
 # rofi & rofi-calc (compilation, because why not)
 ensure_installed rofi-wayland rofi-devel qalculate automake libtool
-git clone https://github.com/svenstaro/rofi-calc "~/.local/bin/build_stage/" && cd "~/.local/bin/build_stage/rofi-calc" && mkdir m4 && autoreconf -i && mkdir build && cd build && ../configure && make && sudo make install 
+git clone https://github.com/svenstaro/rofi-calc "~/.local/bin/build_stage/rofi-calc" && cd "~/.local/bin/build_stage/rofi-calc" && mkdir m4 && autoreconf -i && mkdir build && cd build && ../configure && make && sudo make install 
 cd
 
 # kdeconnect

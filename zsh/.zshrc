@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.local/bin:/usr/local/bin:$PATH:/home/lacko/Programs
+export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
 # XDG compliance
 XDG_DATA_HOME="$HOME/.local/share"
@@ -7,8 +7,6 @@ XDG_CONFIG_HOME="$HOME/.config"
 XDG_STATE_HOME="$HOME/.local/state"
 XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME XDG_CONFIG_HOME XDG_STATE_HOME XDG_CACHE_HOME
-# android-studio
-export ANDROID_HOME="$XDG_DATA_HOME"/android
 # gnupg
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 # less
@@ -155,6 +153,8 @@ export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
 # use yosys ghdl plugin
 #alias yosys="yosys -m ghdl.so"
+
+export VUNIT_MODELSIM_PATH="/home/laszlo.parkanyi/.local/bin/modelsim_dlx/bin/"
 
 # virtualenv automation functions
 # usage
