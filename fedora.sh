@@ -70,6 +70,7 @@ ensure_installed swaync
 set_unit swaync.service
 ensure_installed waybar fontawesome4-fonts
 set_unit waybar.service
+ensure_installed cliphist
 set_unit cliphist.service
 
 # Install ReGreet
