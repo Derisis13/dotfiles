@@ -7,7 +7,7 @@ local autocmd = vim.api.nvim_create_autocmd
 -- })
 
 -- Auto unfold all when entering a buffer
-autocmd("BufWinEnter", { pattern = "*", command = "silent! :%foldopen!" })
+-- autocmd("BufWinEnter", { pattern = "*", command = "silent! :%foldopen!" })
 
 -- Hyrplang filetype 
 vim.filetype.add({
