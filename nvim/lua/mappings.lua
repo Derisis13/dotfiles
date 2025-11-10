@@ -116,3 +116,13 @@ map("v", "<leader>r", ":<C-u>MoltenEvaluateVisual<CR>gv")
 map("n", "<leader>os", ":noautocmd MoltenEnterOutput<CR>")
 map("n", "<leader>oh", ":MoltenHideOutput<CR>")
 map("n", "<leader>md", ":MoltenDelete<CR>")
+
+map({"n", "v", "x"}, "<leader>ts", function()
+    if vim.o.shiftwidth == 4 then
+        vim.o.shiftwidth = 2
+        vim.o.tabstop = 2
+    else
+        vim.o.shiftwidth = 4
+        vim.o.tabstop = 4
+    end
+end, {desc = 'toggle shiftwidth (between 2 and 4)'})
