@@ -6,10 +6,29 @@ local autocmd = vim.api.nvim_create_autocmd
 --   command = "tabdo wincmd =",
 -- })
 
--- Auto unfold all when entering a buffer
--- autocmd("BufWinEnter", { pattern = "*", command = "silent! :%foldopen!" })
+autocmd({ "FileType" }, {
+    callback = function()
 
--- Hyrplang filetype 
+        -- check if treesitter has parser
+        if require("nvim-treesitter.parsers").has_parser() then
+
+            -- use treesitter folding
+            vim.opt.foldmethod = "expr"
+            vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+        else
+
+            -- use alternative foldmethod
+            vim.opt.foldmethod = "syntax"
+        end
+    end,
+})
+
+-- disable folding on startup
+vim.opt.foldenable = false
+-- disable folding on loading
+vim.opt.foldlevel = 20
+
+-- Hyrplang filetype
 vim.filetype.add({
   pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
 })
