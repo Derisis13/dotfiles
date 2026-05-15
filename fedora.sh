@@ -5,10 +5,14 @@ replace_config_line () {
   setting="$2"
   value="$3"
   if grep -Eq "^${setting}=" "$file"; then
-    sed -e "s/^${setting}=.*$/${setting}=${value}/" < "$file" | sudo tee "$file"
+    sed -e "s|^${setting}=.*$|${setting}=${value}|" < "$file" | sudo tee "$file"
   else
     printf "%s=%s\n" "${setting}" "${value}" | sudo tee -a "$file"
   fi
+}
+
+set_unit () {
+    systemctl --user enable --now $*
 }
 
 replace_config_line "/etc/dnf/dnf.conf" "installonly_limit" "3"
@@ -17,7 +21,7 @@ replace_config_line "/etc/dnf/dnf.conf" "skip_unavailable" "True"
 replace_config_line "/etc/dnf/dnf.conf" "fastestmirror" "True"
 replace_config_line "/etc/dnf/dnf.conf" "defaultyes" "True"
 replace_config_line "/etc/dnf/dnf.conf" "keepcache" "True"
-replace_config_line "/etc/dnf/dnf.conf" "max_parallel_downloads" "5"
+replace_config_line "/etc/dnf/dnf.conf" "max_parallel_downloads" "10"
 
 ensure_installed () {
   for dep in !*; do
@@ -27,7 +31,7 @@ ensure_installed () {
 
 # Enable extra repos
 sudo dnf update
-sudo dnf copr enable solopasha/hyprland
+sudo dnf copr enable lionheartp/hyprland
 sudo dnf copr enable tofik/sway
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 
@@ -45,22 +49,41 @@ replace_config_line '/etc/zshenv' 'export ZDOTDIR' '${HOME}/.config/zsh'
 mkdir -p ~/.local/state/zsh/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mv ~/.oh-my-zsh ~/.local/share/oh-my-zsh/   # TODO: figure out how to contol install location of script above. Maybe reboot/relog after xgd_user_dirs is installed?
-git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
-curl -O -fsSL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip && unzip FiraCode.zip *.ttf -d ~/.local/share/fonts/
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+curl -O -fsSL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip && unzip FiraCode.zip "*.ttf" -d ~/.local/share/fonts/ && rm FiraCode.zip
 printf "You'll need to relog to have your default shell changed\n"
 
 # Install background and hyprland stuff
 ensure_installed hyprland hyprpaper hypridle hyprlock hyprsunset
 mkdir -p ~/.local/share/backgrounds/
 curl -o ~/.local/share/backgrounds/eKxlw8.jpg -fsSL "https://live.staticflickr.com/5077/5914101671_d80c6591e8_k.jpg"
+set_unit hypridle.service hyprpaper.service hyprpolkitagent.service hyprsunset.service
+set_unit pipewire.service pipewire-pulse.service
 # desktop elements that just work
 ensure_installed swaync
+set_unit swaync.service
 ensure_installed waybar fontawesome4-fonts
+set_unit waybar.service
+ensure_installed cliphist
+set_unit cliphist.service
+set_unit hypridle.service
+set_unit hyprpaper.service
 
-# Install sddm
-ensure_installed sddm qt6-qtsvg qt5-qtquickcontrols2
-sudo cp ~/.config/sddm/sddm.conf /etc/sddm.conf
-sudo cp -r ~/.config/sddm/themes/catpuccin-macchiatto /usr/share/sddm/themes/
+# Install ReGreet
+# ensure_installed cargo gtk4-devel cairo-gobject-devel pango-devel greetd
+ensure_installed greetd
+sudo usermod -a -G video greetd
+sudo cp -r ~/.config/regreet/greetd/* /etc/greetd/
+sudo cp ~/.local/share/backgrounds/eKxlw8.jpg /etc/greetd/
+sudo cp ~/.config/gtk-4.0/gtk.css /etc/greetd/regreet.css
+sudo cp ~/.config/regreet/tmpfiles.conf /etc/tmpfiles.d/regreet.conf
+mkdir -p "${HOME}/.local/bin/build_stage/"
+git clone https://github.com/rharish101/ReGreet.git "${HOME}/.local/bin/build_stage/" &&
+    cd ~/.local/bin/build_stage/ReGreet/ &&
+    cargo build -F gtk4_8 --release &&
+    sudo cp ./target/release/regreet /usr/bin/ &&
+    systemctl enable greetd.service
+cd
 
 # Install grub
 ensure_installed grub2-common
@@ -81,9 +104,9 @@ dconf load /org/gnome/nautilus < ~/.config/dconf-export/nautilus.dconf
 dconf load /org/gnome/gedit < ~/.config/dconf-export/gedit.dconf
 
 # rofi & rofi-calc (compilation, because why not)
-sudo dnf install --allowerasing --assumeyes https://kojipkgs.fedoraproject.org//packages/rofi-wayland/1.7.5+wayland2/3.fc40/$(uname -m)/rofi-wayland-1.7.5+wayland2-3.fc40.$(uname -m).rpm
-ensure_installed rofi-devel qalculate automake libtool
-git clone https://github.com/svenstaro/rofi-calc && cd rofi-calc && mkdir m4 && autoreconf -i && mkdir build && cd build && ../configure && make && sudo make install && cd ../.. && rm -rf rofi-calc
+ensure_installed rofi-wayland rofi-devel qalculate automake libtool
+git clone https://github.com/svenstaro/rofi-calc "${HOME}/.local/bin/build_stage/rofi-calc" && cd "{HOME}/.local/bin/build_stage/rofi-calc" && mkdir m4 && autoreconf -i && mkdir build && cd build && ../configure && make && sudo make install 
+cd
 
 # kdeconnect
 ensure_installed kdeconnectd
@@ -91,6 +114,7 @@ sudo firewall-cmd --permanent --add-service=kdeconnect
 printf "You'll need to relog for kdeconnect to work\n"
 
 # flatpaks
+ensure_installed flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install flatseal librewolf
 
