@@ -1,7 +1,7 @@
 local options = {
 
   base46 = {
-    theme = "chadracula-evondev", -- default theme
+    theme = "eldritch", -- default theme
     hl_add = {},
     hl_override = {},
     integrations = {},
@@ -11,7 +11,7 @@ local options = {
       },
     },
     transparency = true,
-    theme_toggle = { "chadracula-evondev", "one_light" },
+    theme_toggle = { "eldritch", "one_light" },
   },
 
   ui = {
