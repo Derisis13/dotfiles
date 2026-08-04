@@ -21,7 +21,7 @@ replace_config_line "/etc/dnf/dnf.conf" "skip_unavailable" "True"
 replace_config_line "/etc/dnf/dnf.conf" "fastestmirror" "True"
 replace_config_line "/etc/dnf/dnf.conf" "defaultyes" "True"
 replace_config_line "/etc/dnf/dnf.conf" "keepcache" "True"
-replace_config_line "/etc/dnf/dnf.conf" "max_parallel_downloads" "5"
+replace_config_line "/etc/dnf/dnf.conf" "max_parallel_downloads" "10"
 
 ensure_installed () {
     for dep in $*; do
@@ -35,7 +35,7 @@ ensure_installed () {
 
 # Enable extra repos
 sudo dnf update
-sudo dnf copr enable solopasha/hyprland
+sudo dnf copr enable lionheartp/Hyprland
 sudo dnf copr enable tofik/sway
 sudo dnf copr enable derisis13/ani-cli
 sudo dnf copr enable rezso/hdl
@@ -56,7 +56,7 @@ mkdir -p ~/.local/state/zsh/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mv ~/.oh-my-zsh ~/.local/share/oh-my-zsh/   # TODO: figure out how to contol install location of script above. Maybe reboot/relog after xgd_user_dirs is installed?
 git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
-curl -O -fsSL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip && unzip FiraCode.zip *.ttf -d ~/.local/share/fonts/
+curl -O -fsSL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip && unzip FiraCode.zip "*.ttf" -d ~/.local/share/fonts/
 printf "You'll need to relog to have your default shell changed\n"
 
 # Install background and hyprland stuff
@@ -76,14 +76,14 @@ set_unit cliphist.service
 # Install ReGreet
 ensure_installed cargo gtk4-devel cairo-gobject-devel pango-devel greetd
 sudo usermod -a -G video greetd
-sudo cp -r ~/.config/regreet/greetd /etc/greetd/
+sudo cp -r ~/.config/regreet/greetd/* /etc/greetd/
 sudo cp ~/.local/share/backgrounds/eKxlw8.jpg /etc/greetd/
 sudo cp ~/.config/gtk-4.0/gtk.css /etc/greetd/regreet.css
 sudo cp ~/.config/regreet/tmpfiles.conf /etc/tmpfiles.d/regreet.conf
-mkdir -p "~/.local/bin/build_stage/"
-git clone https://github.com/rharish101/ReGreet.git "~/.local/bin/build_stage/" &&
+mkdir -p ~/.local/bin/build_stage/
+git clone https://github.com/rharish101/ReGreet.git ~/.local/bin/build_stage/ReGreet &&
     cd ~/.local/bin/build_stage/ReGreet/ &&
-    cargo build -F gtk4_8 --release &&
+    cargo build --release &&
     sudo cp ./target/release/regreet /usr/bin/ &&
     systemctl enable greetd.service
 cd
@@ -107,8 +107,8 @@ dconf load /org/gnome/nautilus/ < ~/.config/dconf-export/nautilus.dconf
 dconf load /org/gnome/gedit/ < ~/.config/dconf-export/gedit.dconf
 
 # rofi & rofi-calc (compilation, because why not)
-ensure_installed rofi-wayland rofi-devel qalculate automake libtool
-git clone https://github.com/svenstaro/rofi-calc "~/.local/bin/build_stage/rofi-calc" && cd "~/.local/bin/build_stage/rofi-calc" && mkdir m4 && autoreconf -i && mkdir build && cd build && ../configure && make && sudo make install 
+ensure_installed rofi-wayland rofi-devel qalculate meson libtool cairo-devel
+git clone https://github.com/svenstaro/rofi-calc ~/.local/bin/build_stage/rofi-calc && cd ~/.local/bin/build_stage/rofi-calc && meson setup build && meson compile -C build && sudo meson install
 cd
 
 # kdeconnect
