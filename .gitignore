@@ -1,0 +1,12 @@
+zsh/.zcompdump*
+FiraCode.zip
+systemd/user/default.target.wants/*
+systemd/user/graphical-session.target.wants/*
+systemd/user/sockets.target.wants/*
+nvim/lazy-lock.json
+gtk-4.0/servers
+pulse/cookie
+kdeconnect
+dconf
+pavucontrol.ini
+waybar/config

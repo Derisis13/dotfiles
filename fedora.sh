@@ -15,14 +15,6 @@ set_unit () {
     systemctl --user enable --now $*
 }
 
-replace_config_line "/etc/dnf/dnf.conf" "installonly_limit" "3"
-replace_config_line "/etc/dnf/dnf.conf" "best" "False"
-replace_config_line "/etc/dnf/dnf.conf" "skip_unavailable" "True"
-replace_config_line "/etc/dnf/dnf.conf" "fastestmirror" "True"
-replace_config_line "/etc/dnf/dnf.conf" "defaultyes" "True"
-replace_config_line "/etc/dnf/dnf.conf" "keepcache" "True"
-replace_config_line "/etc/dnf/dnf.conf" "max_parallel_downloads" "10"
-
 ensure_installed () {
     for dep in $*; do
         if $(dnf list --installed "$dep" 2>&1 | grep -q "$dep") ; then
@@ -32,6 +24,18 @@ ensure_installed () {
         fi
     done
 }
+
+# Select install type
+
+type="${1:-desktop}"
+
+replace_config_line "/etc/dnf/dnf.conf" "installonly_limit" "3"
+replace_config_line "/etc/dnf/dnf.conf" "best" "False"
+replace_config_line "/etc/dnf/dnf.conf" "skip_unavailable" "True"
+replace_config_line "/etc/dnf/dnf.conf" "fastestmirror" "True"
+replace_config_line "/etc/dnf/dnf.conf" "defaultyes" "True"
+replace_config_line "/etc/dnf/dnf.conf" "keepcache" "True"
+replace_config_line "/etc/dnf/dnf.conf" "max_parallel_downloads" "10"
 
 # Enable extra repos
 sudo dnf update
@@ -65,10 +69,16 @@ mkdir -p ~/.local/share/backgrounds/
 curl -o ~/.local/share/backgrounds/eKxlw8.jpg -fsSL "https://live.staticflickr.com/5077/5914101671_d80c6591e8_k.jpg"
 set_unit hypridle.service hyprpaper.service hyprpolkitagent.service hyprsunset.service
 set_unit pipewire.service pipewire-pulse.service
+
 # desktop elements that just work
 ensure_installed swaync
 set_unit swaync.service
-ensure_installed waybar fontawesome4-fonts
+ensure_installed waybar fontawesome4-fonts pavucontrol powerprofilesctl blueman
+if [ "$type" = "laptop" ]; then
+    cp ~/.config/waybar/config_laptop.json ~/.config/waybar/config
+else
+    cp ~/.config/waybar/config_desktop.json ~/.config/waybar/config
+fi
 set_unit waybar.service
 ensure_installed cliphist
 set_unit cliphist.service
