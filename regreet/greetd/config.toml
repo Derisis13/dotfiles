@@ -5,6 +5,6 @@ vt = current
 
 # The default session, also known as the greeter.
 [default_session]
-command = "Hyprland --config /etc/greetd/hyprland.conf"
+command = "dbus-run-session start-hyprland -- -c /etc/greetd/hyprland.conf"
 user = "greetd"
 
