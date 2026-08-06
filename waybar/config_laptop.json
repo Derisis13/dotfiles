@@ -11,7 +11,7 @@
   "margin-bottom": 3,
   "modules-left": ["custom/junkyard", "hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["tray", "custom/notification", "pulseaudio", "bluetooth", "backlight", "network", "battery", "group/group-power" ],
+  "modules-right": ["tray", "custom/notification", "pulseaudio", "backlight", "bluetooth", "network", "battery", "group/group-power" ],
   "tray": {
     "icon-size": 16,
     "spacing": 10

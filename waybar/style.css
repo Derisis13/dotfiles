@@ -75,7 +75,7 @@ button {
 #bluetooth {
     background-color: @base; /* Change this to any gray color you want */
     border-radius: 0px; /* Adjust as needed */
-    padding: 3px 3px;
+    padding: 3px 5px;
     color: @text;
     margin: 0px;
 }
@@ -91,7 +91,7 @@ button {
 #battery {
       background-color: @base; /* Change this to any gray color you want */
       border-radius: 0px 10px 10px 0px; /* Adjust as needed */
-      padding: 3px 10px;
+      padding: 3px 10px 3px 5px;
       color: @text;
 }
 
