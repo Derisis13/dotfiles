@@ -128,9 +128,21 @@ button {
 #group-power {
     background-color: @base;
     border-radius: 10px;
-    padding: 3px 5px;
+    padding: 3px 8px;
     margin-left: 3px;
     color: @text;
+}
+
+#custom-quit,
+#custom-lock,
+#custom-suspend,
+#custom-reboot,
+#custom-power {
+    padding: 3px 6px;
+}
+
+#custom-power{
+    font-size: 20px;
 }
 
 @keyframes blink {

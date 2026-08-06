@@ -128,27 +128,27 @@
         ]
     },
     "custom/quit": {
-        "format": " 󰗼 ",
+        "format": "󰗼",
         "tooltip": false,
         "on-click": "uwsm stop"
     },
     "custom/lock": {
-        "format": " 󰍁 ",
+        "format": "󰍁",
         "tooltip": false,
         "on-click": "loginctl lock-session"
     },
     "custom/suspend": {
-      "format": " 󰒲 ",
+      "format": "󰒲",
       "tooltip": false,
       "on-click": "systemctl suspend"
     },
     "custom/reboot": {
-        "format": " 󰜉 ",
+        "format": "󰜉",
         "tooltip": false,
         "on-click": "systemctl reboot"
     },
     "custom/power": {
-        "format": "  ",
+        "format": "󰐥",
         "tooltip": false,
         "on-click": "systemctl poweroff"
     },
