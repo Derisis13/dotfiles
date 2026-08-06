@@ -22,11 +22,11 @@ amixer get Master | grep '\[on\]' &>/dev/null
 if [[ "$?" == 0 ]]; then
 	active="-a 1"
 	stext='Unmute'
-	sicon=''
+	sicon='󰕾'
 else
 	urgent="-u 1"
 	stext='Mute'
-	sicon=''
+	sicon='󰸈'
 fi
 
 # Microphone Info
@@ -34,11 +34,11 @@ amixer get Capture | grep '\[on\]' &>/dev/null
 if [[ "$?" == 0 ]]; then
     [ -n "$active" ] && active+=",3" || active="-a 3"
 	mtext='Unmute'
-	micon=''
+	micon='󰍬'
 else
     [ -n "$urgent" ] && urgent+=",3" || urgent="-u 3"
 	mtext='Mute'
-	micon=''
+	micon=''
 fi
 
 # Theme Elements
@@ -108,7 +108,7 @@ run_cmd() {
 	elif [[ "$1" == '--opt4' ]]; then
 		amixer set Capture toggle
 	elif [[ "$1" == '--opt5' ]]; then
-		pavucontrol
+		uwsm app pavucontrol
 	fi
 }
 

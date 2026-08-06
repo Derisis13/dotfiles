@@ -83,7 +83,7 @@ run_cmd() {
 	elif [[ "$1" == '--opt3' ]]; then
 		light -U 5
 	elif [[ "$1" == '--opt4' ]]; then
-		xfce4-power-manager-settings
+		uwsm app xfce4-power-manager-settings
 	fi
 }
 

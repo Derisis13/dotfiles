@@ -1,7 +1,6 @@
 # bash-aliases
 
 # command preferences
-alias sudo="doas"					# less bloated, more secure
 alias cp="cp -i"                                	# confirm before overwriting something
 alias df='df -h'                                	# human-readable sizes
 alias free='free -m'                            	# show sizes in MB
@@ -21,10 +20,10 @@ alias less='less -r' # retain color escapes
 #alias holoware='wine ~/Programs/holoware/Holoware\ v0.2/Holoware.exe'	# Fanmade Wario Ware style game with Hololive characters
 
 # one-liners
-alias bton='doas /etc/init.d/bluetooth start'				# Turn the bluetooth daemon on
-alias btoff='doas /etc/init.d/bluetooth stop'				# Turn the bluetooth daemon off
-alias ani-hist='${EDITOR} "${XDG_CACHE_HOME:-$HOME/.cache}/ani-hsts"'		# Edit the history file of ani-cli
-alias ud="doas dnf upgrade; flatpak update -y;"			# ud for quick update
+alias bton='sudo /etc/init.d/bluetooth start'				# Turn the bluetooth daemon on
+alias btoff='sudo /etc/init.d/bluetooth stop'				# Turn the bluetooth daemon off
+alias ani-hist='${EDITOR} "${XDG_STATE_HOME:-$HOME/.local/state}/ani-cli/ani-hsts"'		# Edit the history file of ani-cli
+alias ud="sudo dnf upgrade; flatpak update -y;"			# ud for quick update
 #alias toolbox='systemctl start iscsid open-iscsi'			# start the iSCSI services 
 cdwork () {
 	lxc list status=running | grep -q quarch || lxc start quarch

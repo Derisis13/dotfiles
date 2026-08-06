@@ -32,7 +32,7 @@ MessageBelowAnimation=true
 UseEndAnimation=true
 UseFirmwareBackground=false
 Title=HA5PLS
-SubTitle=CQ DE INSPIRON-5558
+SubTitle=CQ DE CLAVIUS
 
 [shutdown]
 UseEndAnimation=true

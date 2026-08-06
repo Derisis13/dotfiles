@@ -108,7 +108,7 @@ run_cmd() {
 	elif [[ "$1" == '--opt2' ]]; then
 		notify-send -u low "$ICON_CHRG Status : $status"
 	elif [[ "$1" == '--opt3' ]]; then
-		xfce4-power-manager-settings
+		uwsm app xfce4-power-manager-settings
 	elif [[ "$1" == '--opt4' ]]; then
 		${polkit_cmd} kitty -e powertop
 	fi

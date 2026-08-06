@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.local/bin:/usr/local/bin:$PATH:/home/lacko/Programs
+export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
 # XDG compliance
 XDG_DATA_HOME="$HOME/.local/share"
@@ -7,8 +7,6 @@ XDG_CONFIG_HOME="$HOME/.config"
 XDG_STATE_HOME="$HOME/.local/state"
 XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME XDG_CONFIG_HOME XDG_STATE_HOME XDG_CACHE_HOME
-# android-studio
-export ANDROID_HOME="$XDG_DATA_HOME"/android
 # gnupg
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 # less
@@ -153,14 +151,48 @@ fi
 # pkg-config correction (by the readme of DSView-1.12)
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
-# XILINX
-XILINX_EDK=/media/lacko/TOOLBOX/ISE/14.7/ISE_DS/EDK
-XILINX_PLANAHEAD=/media/lacko/TOOLBOX/ISE/14.7/ISE_DS/PlanAhead
-XILINX_DSP=/media/lacko/TOOLBOX/ISE/14.7/ISE_DS/ISE
-XILINX=/media/lacko/TOOLBOX/ISE/14.7/ISE_DS/ISE
-export XILINX_EDK
-export XILINX_PLANAHEAD
-export XILINX_DSP
-export XILINX
+# use yosys ghdl plugin
+#alias yosys="yosys -m ghdl.so"
 
-export VHDL_LS_CONFIG=$HOME/Desktop/work/global_fpga/_utilities_/vhdl_ls.toml
+export VUNIT_MODELSIM_PATH="/home/laszlo.parkanyi/.local/bin/modelsim_dlx/bin/"
+
+# virtualenv automation functions
+# usage
+# $ mkvenv myvirtualenv # creates venv under $XDG_STATE_HOME/virtualenvs/
+# $ venv myvirtualenv   # activates venv
+# $ deactivate          # deactivates venv
+# $ rmvenv myvirtualenv # removes venv
+
+export VENV_HOME="$XDG_STATE_HOME/virtualenvs"
+[[ -d $VENV_HOME ]] || mkdir $VENV_HOME
+
+lsvenv() {
+  ls -1 $VENV_HOME
+}
+
+venv() {
+  if [ $# -eq 0 ]
+    then
+      echo "Please provide venv name"
+    else
+      source "$VENV_HOME/$1/bin/activate"
+  fi
+}
+
+mkvenv() {
+  if [ $# -eq 0 ]
+    then
+      echo "Please provide venv name"
+    else
+      python3 -m venv $VENV_HOME/$1
+  fi
+}
+
+rmvenv() {
+  if [ $# -eq 0 ]
+    then
+      echo "Please provide venv name"
+    else
+      rm -r $VENV_HOME/$1
+  fi
+}

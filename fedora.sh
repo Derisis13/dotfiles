@@ -11,24 +11,38 @@ replace_config_line () {
   fi
 }
 
+set_unit () {
+    systemctl --user enable --now $*
+}
+
+ensure_installed () {
+    for dep in $*; do
+        if $(dnf list --installed "$dep" 2>&1 | grep -q "$dep") ; then
+            echo "${dep} already installed"
+        else
+            sudo dnf install "$dep" --assumeyes --allowerasing
+        fi
+    done
+}
+
+# Select install type
+
+type="${1:-desktop}"
+
 replace_config_line "/etc/dnf/dnf.conf" "installonly_limit" "3"
 replace_config_line "/etc/dnf/dnf.conf" "best" "False"
 replace_config_line "/etc/dnf/dnf.conf" "skip_unavailable" "True"
 replace_config_line "/etc/dnf/dnf.conf" "fastestmirror" "True"
 replace_config_line "/etc/dnf/dnf.conf" "defaultyes" "True"
 replace_config_line "/etc/dnf/dnf.conf" "keepcache" "True"
-replace_config_line "/etc/dnf/dnf.conf" "max_parallel_downloads" "5"
-
-ensure_installed () {
-  for dep in !*; do
-    dnf list --installed "$dep" 2>&1 | grep -q "$dep" || sudo dnf install "$dep" --assumeyes --allowerasing
-  done
-}
+replace_config_line "/etc/dnf/dnf.conf" "max_parallel_downloads" "10"
 
 # Enable extra repos
 sudo dnf update
-sudo dnf copr enable solopasha/hyprland
+sudo dnf copr enable lionheartp/Hyprland
 sudo dnf copr enable tofik/sway
+sudo dnf copr enable derisis13/ani-cli
+sudo dnf copr enable rezso/hdl
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 
 # Edit then install packages
@@ -41,26 +55,48 @@ printf "You'll need to reboot to have selinux disabled\n"
 
 # set up ZSH
 ensure_installed zsh fzf sqlite3
-replace_config_line '/etc/zshenv' 'export ZDOTDIR' '${HOME}/.config/zsh'
+replace_config_line '/etc/zshenv' 'export ZDOTDIR' '"$XDG_CONFIG_HOME"/zsh'
 mkdir -p ~/.local/state/zsh/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mv ~/.oh-my-zsh ~/.local/share/oh-my-zsh/   # TODO: figure out how to contol install location of script above. Maybe reboot/relog after xgd_user_dirs is installed?
-git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
-curl -O -fsSL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip && unzip FiraCode.zip *.ttf -d ~/.local/share/fonts/
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+curl -O -fsSL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip && unzip FiraCode.zip "*.ttf" -d ~/.local/share/fonts/
 printf "You'll need to relog to have your default shell changed\n"
 
 # Install background and hyprland stuff
 ensure_installed hyprland hyprpaper hypridle hyprlock hyprsunset
 mkdir -p ~/.local/share/backgrounds/
 curl -o ~/.local/share/backgrounds/eKxlw8.jpg -fsSL "https://live.staticflickr.com/5077/5914101671_d80c6591e8_k.jpg"
+set_unit hypridle.service hyprpaper.service hyprpolkitagent.service hyprsunset.service
+set_unit pipewire.service pipewire-pulse.service
+
 # desktop elements that just work
 ensure_installed swaync
-ensure_installed waybar fontawesome4-fonts
+set_unit swaync.service
+ensure_installed waybar fontawesome4-fonts pavucontrol powerprofilesctl blueman
+if [ "$type" = "laptop" ]; then
+    cp ~/.config/waybar/config_laptop.json ~/.config/waybar/config
+else
+    cp ~/.config/waybar/config_desktop.json ~/.config/waybar/config
+fi
+set_unit waybar.service
+ensure_installed cliphist
+set_unit cliphist.service
 
-# Install sddm
-ensure_installed sddm qt6-qtsvg qt5-qtquickcontrols2
-sudo cp ~/.config/sddm/sddm.conf /etc/sddm.conf
-sudo cp -r ~/.config/sddm/themes/catpuccin-macchiatto /usr/share/sddm/themes/
+# Install ReGreet
+ensure_installed cargo gtk4-devel cairo-gobject-devel pango-devel greetd
+sudo usermod -a -G video greetd
+sudo cp -r ~/.config/regreet/greetd/* /etc/greetd/
+sudo cp ~/.local/share/backgrounds/eKxlw8.jpg /etc/greetd/
+sudo cp ~/.config/gtk-4.0/gtk.css /etc/greetd/regreet.css
+sudo cp ~/.config/regreet/tmpfiles.conf /etc/tmpfiles.d/regreet.conf
+mkdir -p ~/.local/bin/build_stage/
+git clone https://github.com/rharish101/ReGreet.git ~/.local/bin/build_stage/ReGreet &&
+    cd ~/.local/bin/build_stage/ReGreet/ &&
+    cargo build --release &&
+    sudo cp ./target/release/regreet /usr/bin/ &&
+    systemctl enable greetd.service
+cd
 
 # Install grub
 ensure_installed grub2-common
@@ -75,15 +111,15 @@ sudo plymouth-set-default-theme -R fedora-mac-style && sudo dracut --regenerate-
 
 # install gnome's stuff
 ensure_installed gnome-keying nautilus dconf gedit
-dconf load /org/gtk/gtk4 < ~/.config/dconf-export/gtk4.dconf
-dconf load /org/gnome/desktop < ~/.config/dconf-export/gnome-desktop.dconf
-dconf load /org/gnome/nautilus < ~/.config/dconf-export/nautilus.dconf
-dconf load /org/gnome/gedit < ~/.config/dconf-export/gedit.dconf
+dconf load /org/gtk/gtk4/ < ~/.config/dconf-export/gtk4.dconf
+dconf load /org/gnome/desktop/ < ~/.config/dconf-export/gnome-desktop.dconf
+dconf load /org/gnome/nautilus/ < ~/.config/dconf-export/nautilus.dconf
+dconf load /org/gnome/gedit/ < ~/.config/dconf-export/gedit.dconf
 
 # rofi & rofi-calc (compilation, because why not)
-sudo dnf install --allowerasing --assumeyes https://kojipkgs.fedoraproject.org//packages/rofi-wayland/1.7.5+wayland2/3.fc40/$(uname -m)/rofi-wayland-1.7.5+wayland2-3.fc40.$(uname -m).rpm
-ensure_installed rofi-devel qalculate automake libtool
-git clone https://github.com/svenstaro/rofi-calc && cd rofi-calc && mkdir m4 && autoreconf -i && mkdir build && cd build && ../configure && make && sudo make install && cd ../.. && rm -rf rofi-calc
+ensure_installed rofi-wayland rofi-devel qalculate meson libtool cairo-devel
+git clone https://github.com/svenstaro/rofi-calc ~/.local/bin/build_stage/rofi-calc && cd ~/.local/bin/build_stage/rofi-calc && meson setup build && meson compile -C build && sudo meson install
+cd
 
 # kdeconnect
 ensure_installed kdeconnectd
@@ -95,7 +131,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 flatpak install flatseal librewolf
 
 # set up neovim
-ensure_installed neovim clang unzip npm ripgrep go
+ensure_installed neovim clang unzip npm ripgrep go luarocks
 nvim
 
 # to finalize it all
