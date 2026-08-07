@@ -6,6 +6,15 @@ local autocmd = vim.api.nvim_create_autocmd
 --   command = "tabdo wincmd =",
 -- })
 
+autocmd('FileType', {
+  pattern = { 'lua', 'vhdl', 'python', 'markdown', 'latex', 'c', 'cpp', 'hyprlang', 'html', 'css', 'yaml', 'json' },
+  callback = function()
+    vim.treesitter.start()                                    -- highlighting
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'     -- folds
+    vim.wo.foldmethod = 'expr'
+    -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" -- indentation
+  end,
+})
 
 -- disable folding on startup
 vim.opt.foldenable = false
@@ -47,3 +56,9 @@ local enable_providers = {
     end
 
 vim.g.python3_host_prog = vim.fn.expand(os.getenv("XDG_STATE_HOME") .. "/virtualenvs/neovim/bin/python3")
+
+-- Acu filetype
+autocmd({'BufRead', 'BufNewFile'}, {
+    pattern = '*.acu',
+    command = "set filetype=acu"
+})
