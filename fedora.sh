@@ -118,7 +118,7 @@ dconf load /org/gnome/gedit/ < ~/.config/dconf-export/gedit.dconf
 
 # rofi & rofi-calc (compilation, because why not)
 ensure_installed rofi-wayland rofi-devel qalculate meson libtool cairo-devel
-git clone https://github.com/svenstaro/rofi-calc ~/.local/bin/build_stage/rofi-calc && cd ~/.local/bin/build_stage/rofi-calc && meson setup build && meson compile -C build && sudo meson install
+git clone https://github.com/svenstaro/rofi-calc ~/.local/bin/build_stage/rofi-calc && cd ~/.local/bin/build_stage/rofi-calc && meson setup build && cd build && meson compile -C build && sudo meson install
 cd
 
 # kdeconnect
