@@ -26,12 +26,12 @@
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         //"reverse-scrolling": 1,
-        "format": "{icon} {volume}% {format_source}",
-        "format-bluetooth": "{icon} {volume}% {format_source}",
-        "format-bluetooth-muted": "{icon} {format_source}",
-        "format-muted": "󰝟 {volume}% {format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": " {volume}%",
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": "{volume}% {icon}󰂲 {format_source}",
+        "format-muted": "{volume}% 󰝟 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "{volume}% ",
         "format-icons": {
             "headphone": "󰋋",
             "hands-free": "󱡒",
@@ -48,7 +48,7 @@
     "bluetooth": {
         "format": "",
         "format-disabled": "",
-        "format-connected": " {num_connections}",
+        "format-connected": "{num_connections} ",
         "tooltip-format-enumerate-connected": "{device_alias}",
         "tooltip-format-connected": "{device_enumerate}",
         "on-click": "uwsm app blueman-manager"
@@ -94,7 +94,7 @@
 
     "cpu": {
         "interval": 1,
-        "format": "  {usage:02d}%{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
+        "format": "{usage:02d}%{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7} ",
         "format-icons": [
             "<span color='#a6da95'>▁</span>", // green
             "<span color='#8aadf4'>▂</span>", // blue
@@ -109,7 +109,7 @@
 
     "memory": {
         "interval": 5,
-        "format": "󰍛 {percentage}%"
+        "format": "{percentage}% 󰍛"
     },
 
     "group/group-power": {
@@ -158,7 +158,7 @@
             "warning": 20,
             "critical": 5
         },
-        "format": "{icon}{capacity}%",
+        "format": "{capacity}% {icon}",
         "format-charging": "{capacity}% 󰂄",
         "format-plugged": "{capacity}% 󰚥",
         // "format-alt": "{time} {icon}",
@@ -170,7 +170,7 @@
     },
 
     "backlight": {
-        "format": "{icon}  {percent}%",
+        "format": "{percent}% {icon}",
         "format-icons": ["󰃞", "󰃟", "󰃠"]
     },
 
