@@ -1,3 +1,6 @@
+[compression]
+default-compression-format='tar.xz'
+
 [icon-view]
 default-zoom-level='small'
 
@@ -6,6 +9,8 @@ default-folder-viewer='icon-view'
 migrated-gtk-settings=true
 search-filter-time-type='last_modified'
 search-view='list-view'
+show-create-link=true
+show-delete-permanently=true
 
 [window-state]
 initial-size=(1280, 720)

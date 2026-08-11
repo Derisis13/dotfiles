@@ -12,7 +12,10 @@ statusbar-visible=true
 
 [state/window]
 bottom-panel-size=140
+height=979
+maximized=true
 side-panel-active-page='GeditWindowDocumentsPanel'
 side-panel-size=200
-size=(635, 285)
+size=(950, 975)
 state=43908
+width=956
