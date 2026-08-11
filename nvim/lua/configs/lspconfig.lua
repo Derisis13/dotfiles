@@ -2,6 +2,6 @@ local on_attach = require("nvchad.configs.lspconfig").on_attach
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "hyprls", "lua-language-server", "clangd", "basedpyright", "vhdl_ls" }
+local servers = { "hyprls", "lua-language-server", "clangd", "basedpyright", "vhdl_ls", "verible" }
 
 vim.lsp.enable(servers)

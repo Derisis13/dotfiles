@@ -1,6 +1,7 @@
-{
+[{
   "layer": "top",
   "position": "top",
+  "output": "DP-2",
   "include": [
     "~/.config/waybar/modules.jsonc"
   ],
@@ -16,4 +17,24 @@
     "icon-size": 16,
     "spacing": 10
   },
-}
+},
+{
+  "layer": "top",
+  "position": "top",
+  "output": "HDMI-A-2",
+  "include": [
+    "~/.config/waybar/modules.jsonc"
+  ],
+	"height": 40,
+  "margin-left": 3, 
+  "margin-right": 3,
+  "margin-top": 3,
+  "margin-bottom": 3,
+  "modules-left": ["custom/junkyard", "hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["tray", "custom/notification", "pulseaudio", "group/group-power"],
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
+}]
