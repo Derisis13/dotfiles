@@ -26,7 +26,7 @@ for key, cmd in pairs(execs) do
 end
 
 -- Move focus with "SUPER + "  +  arrow keys
-for key,dir in pairs({H="left", J="down", K="up", L="left"}) do
+for key,dir in pairs({H="left", J="down", K="up", L="right", left="left", down="down", up="up", right="right"}) do
     hl.bind("SUPER + "..key, hl.dsp.focus({direction=dir}))
     hl.bind("SUPER + ".."SHIFT + "..key, hl.dsp.window.move({direction=dir})) -- will this move workspace up?
     -- hl.bind("SUPER + ".."SHIFT + "..direction, hl.dsp.window.move(direction=direction))
@@ -54,8 +54,8 @@ hl.bind("SUPER + ".."E", hl.dsp.window.fullscreen("fullscreen", "toggle"), {lock
 
 hl.bind("SUPER + ".."TAB", hl.dsp.workspace.toggle_special(), {locked=false, repeating=false, ignore_mods=false})
 hl.bind("SUPER + ".."mouse:274", hl.dsp.workspace.toggle_special(), {locked=false, repeating=false, ignore_mods=false})
--- hl.bind("SUPER + ".."SHIFT + TAB", hl.dsp.window.move({workspace=special}), {locked=false, repeating=false, ignore_mods=false})
--- hl.bind("SUPER + ".."SHIFT + mouse:274", hl.dsp.window.move({workspace=special}), {locked=false, repeating=false, ignore_mods=false})
+hl.bind("SUPER + ".."SHIFT + TAB", hl.dsp.window.move({workspace="special"}), {locked=false, repeating=false, ignore_mods=false})
+hl.bind("SUPER + ".."SHIFT + mouse:274", hl.dsp.window.move({workspace="special"}), {locked=false, repeating=false, ignore_mods=false})
 
 hl.bind("SUPER + ".."mouse:272", hl.dsp.window.drag(), {mouse=true, drag=true, locked=false, repeating=false, ignore_mods=false})
 hl.bind("SUPER + ".."SHIFT + mouse:272", hl.dsp.window.resize(), {mouse=true, drag=true, locked=false, repeating=false, ignore_mods=false})
@@ -63,11 +63,12 @@ hl.bind("SUPER + ".."mouse:273", hl.dsp.window.resize(), {mouse=true, drag=true,
 
 -- Media keybinds: repeating and allow when locked
 local media_execs = {
-    XF86AudioRaiseVolume="wpclt set-volume @DEFAULT_AUDIO_SINK@ 5% + ",
-    XF86AudioLowerVolume="wpclt set-volume @DEFAULT_AUDIO_SINK@ 5%-",
-    XF86AudioMute="wpclt set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    XF86MonBrightnessUp="brightnessctl set 1% + ",
-    XF86MonBrightnessDown="brightnessctl set 1%-",
+    XF86AudioRaiseVolume="wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    XF86AudioLowerVolume="wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    XF86AudioMute="wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    XF86AudioMicMute="wpctl set-mute @DEFAULT_SOURCE@ toggle",
+    XF86MonBrightnessUp="brightnessctl set 5%+ ",
+    XF86MonBrightnessDown="brightnessctl set 5%-",
     XF86AudioPlay="playerctl play-pause",
     XF86AudioNext="playerctl next",
     XF86AudioPrev="playerctl previous",
