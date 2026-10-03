@@ -25,6 +25,9 @@ local monitors = {
         scale = 1
     } -- everything else
 }
+for _,monitor in pairs(monitors) do
+    hl.monitor(monitor)
+end
 
 -- # Catppuccin theme colors
 palette = require "macchiato"
@@ -53,6 +56,9 @@ hl.config({
         follow_mouse = true,
         touchpad = { natural_scroll = false, },
         sensitivity = 0, -- -1.0 .. 1.0, 0 means no modification.
+    },
+    gestures = {
+        workspace_swipe_invert = false,
     },
     decoration = {
         rounding = 5,
@@ -88,14 +94,14 @@ hl.animation({leaf="fade", enabled=true, speed=7, bezier="default"})
 hl.animation({leaf="workspaces", enabled=true, speed=6, bezier="myBezier", style="slidevert"})
 hl.animation({leaf="specialWorkspace", enabled=true, speed=3, bezier="cubic", style="slide"})
 
-hl.gesture({fingers=4, direction="vertical", action="workspace"}) -- TODO: invert
+hl.gesture({fingers=4, direction="vertical", action="workspace", }) -- TODO: invert
 -- hl.gesture({fingers=4, direction="horizontal", action="special"}) -- TODO: toggle
 hl.gesture({fingers=3, direction="down", action=function () hl.dsp.exec_cmd("~/.config/rofi/launchers/type-1/launcher.sh") end})
-hl.gesture({fingers=3, direction="up", action=function() hl.dsp.exec_cmd("rofi -theme ~/.config/rofi/launchers/type-1/style-5.rasi -show calc -modi calc -no-show-match -no-sort -no-persist-history -calc-command \"echo -n '{result}' | wl-copy\"") end})
-hl.gesture({fingers=2, direction="pinch", action="cursor_zoom"})
+-- hl.gesture({fingers=3, direction="up", action="workspace"})
+hl.gesture({fingers=2, direction="pinch", action="cursor_zoom", zoom_level=2.0, mode="live"})
 -- TODO: two finger left-right for back-forward
 hl.gesture({fingers=5, direction="pinchout", action=function() hl.dsp.exec_cmd("/usr/bin/hyprlock") end})
-hl.gesture({fingers=5, direction="pinchin", action=function() hl.dsp.window.close() end})
+hl.gesture({fingers=3, direction="pinchin", action=function() hl.dsp.window.close() end})
 
 require "exec"
 require "keybinds"
