@@ -50,16 +50,16 @@ hl.bind("SUPER + ".."BACKSPACE", hl.dsp.window.close(), {locked=false, repeating
 hl.bind("SUPER + ".."CTRL + ALT + BACKSPACE", hl.dsp.exit(), {locked=false, repeating=false, ignore_mods=false}) -- uwsm stop? loginctl?
 hl.bind("SUPER + ".."Y", hl.dsp.window.float("toggle"), {locked=false, repeating=false, ignore_mods=false})
 hl.bind("SUPER + ".."P", hl.dsp.window.pin("toggle"), {locked=false, repeating=false, ignore_mods=false})
-hl.bind("SUPER + ".."E", hl.dsp.window.fullscreen("fullscreen", "toggle"), {locked=false, repeating=false, ignore_mods=false})
+hl.bind("SUPER + ".."E", hl.dsp.window.fullscreen("toggle"), {locked=false, repeating=false, ignore_mods=false})
 
 hl.bind("SUPER + ".."TAB", hl.dsp.workspace.toggle_special(), {locked=false, repeating=false, ignore_mods=false})
 hl.bind("SUPER + ".."mouse:274", hl.dsp.workspace.toggle_special(), {locked=false, repeating=false, ignore_mods=false})
 hl.bind("SUPER + ".."SHIFT + TAB", hl.dsp.window.move({workspace="special"}), {locked=false, repeating=false, ignore_mods=false})
 hl.bind("SUPER + ".."SHIFT + mouse:274", hl.dsp.window.move({workspace="special"}), {locked=false, repeating=false, ignore_mods=false})
 
-hl.bind("SUPER + ".."mouse:272", hl.dsp.window.drag(), {mouse=true, drag=true, locked=false, repeating=false, ignore_mods=false})
-hl.bind("SUPER + ".."SHIFT + mouse:272", hl.dsp.window.resize(), {mouse=true, drag=true, locked=false, repeating=false, ignore_mods=false})
-hl.bind("SUPER + ".."mouse:273", hl.dsp.window.resize(), {mouse=true, drag=true, locked=false, repeating=false, ignore_mods=false})
+hl.bind("SUPER + ".."mouse:272", hl.dsp.window.drag(), {mouse=false, drag=true, locked=false, repeating=false, ignore_mods=false})
+hl.bind("SUPER + ".."SHIFT + mouse:272", hl.dsp.window.resize(), {mouse=false, drag=true, locked=false, repeating=false, ignore_mods=false})
+hl.bind("SUPER + ".."mouse:273", hl.dsp.window.resize(), {mouse=false, drag=true, locked=false, repeating=false, ignore_mods=false})
 
 -- Media keybinds: repeating and allow when locked
 local media_execs = {
